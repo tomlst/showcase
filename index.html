@@ -10,250 +10,222 @@
 <body>
 <style>
   :root {
-    --font-grotesk: "Helvetica Neue", Helvetica, Arial, "Segoe UI", system-ui, sans-serif;
+    --font-serif: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, "Times New Roman", serif;
+    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     --font-mono: "SF Mono", "Cascadia Code", "JetBrains Mono", "Consolas", "Liberation Mono", monospace;
 
-    /* light — warm paper, near-black ink, cobalt+ochre duotone */
-    --paper: #fcfcfb;
-    --paper-2: #f4f3ee;
-    --ink: #0e0e0f;
-    --ink-2: #52514c;
-    --ink-3: #8a897e;
-    --rule: #d8d7cf;      /* hairline */
-    --rule-ink: #0e0e0f;  /* bold rule */
-    --grid: #e8e7e0;
-    --accent: #1b3be0;    /* cobalt — signal / Q5 / gross / IC+ */
-    --accent-soft: rgba(27,59,224,0.09);
-    --amber: #b8801a;     /* ochre — Q1 / net / IC- */
-    --amber-soft: rgba(184,128,26,0.12);
-    --ctx-1: #a9a89e;     /* Q4 */
-    --ctx-2: #c2c1b7;     /* Q3 */
-    --ctx-3: #d5d4ca;     /* Q2 */
+    /* light — institutional working paper: navy + white, steel/burgundy data */
+    --paper: #ffffff;
+    --paper-2: #f5f7f9;
+    --navy: #15294d;
+    --ink: #1f2733;
+    --ink-2: #54606f;
+    --ink-3: #8894a2;
+    --rule: #d8dde4;
+    --rule-strong: #15294d;
+    --grid: #eaeef2;
+    --accent: #2f5c9e;
+    --accent-soft: rgba(47,92,158,0.09);
+    --accent-2: #9b2f3f;
+    --ctx-1: #9aa4b1;
+    --ctx-2: #bcc4cf;
+    --ctx-3: #d3d9e0;
   }
   @media (prefers-color-scheme: dark) {
     :root {
-      --paper: #0b0b0c;
-      --paper-2: #141416;
-      --ink: #f1efe8;
-      --ink-2: #a7a69d;
-      --ink-3: #6e6d64;
-      --rule: #262629;
-      --rule-ink: #f1efe8;
-      --grid: #1c1c1f;
-      --accent: #5470ec;
-      --accent-soft: rgba(84,112,236,0.16);
-      --amber: #be8a34;
-      --amber-soft: rgba(190,138,52,0.18);
-      --ctx-1: #6f6f66;
-      --ctx-2: #57574f;
-      --ctx-3: #45453e;
+      --paper: #0f1420;
+      --paper-2: #161d2b;
+      --navy: #e3e9f2;
+      --ink: #ccd5e1;
+      --ink-2: #93a0b2;
+      --ink-3: #606c7e;
+      --rule: #27313f;
+      --rule-strong: #6b7789;
+      --grid: #1b2431;
+      --accent: #6193d2;
+      --accent-soft: rgba(97,147,210,0.15);
+      --accent-2: #d3737f;
+      --ctx-1: #6d7889;
+      --ctx-2: #525c6b;
+      --ctx-3: #414a57;
     }
   }
   :root[data-theme="light"] {
-    --paper:#fcfcfb; --paper-2:#f4f3ee; --ink:#0e0e0f; --ink-2:#52514c; --ink-3:#8a897e;
-    --rule:#d8d7cf; --rule-ink:#0e0e0f; --grid:#e8e7e0; --accent:#1b3be0; --accent-soft:rgba(27,59,224,0.09);
-    --amber:#b8801a; --amber-soft:rgba(184,128,26,0.12); --ctx-1:#a9a89e; --ctx-2:#c2c1b7; --ctx-3:#d5d4ca;
+    --paper:#fff; --paper-2:#f5f7f9; --navy:#15294d; --ink:#1f2733; --ink-2:#54606f; --ink-3:#8894a2;
+    --rule:#d8dde4; --rule-strong:#15294d; --grid:#eaeef2; --accent:#2f5c9e; --accent-soft:rgba(47,92,158,0.09);
+    --accent-2:#9b2f3f; --ctx-1:#9aa4b1; --ctx-2:#bcc4cf; --ctx-3:#d3d9e0;
   }
   :root[data-theme="dark"] {
-    --paper:#0b0b0c; --paper-2:#141416; --ink:#f1efe8; --ink-2:#a7a69d; --ink-3:#6e6d64;
-    --rule:#262629; --rule-ink:#f1efe8; --grid:#1c1c1f; --accent:#5470ec; --accent-soft:rgba(84,112,236,0.16);
-    --amber:#be8a34; --amber-soft:rgba(190,138,52,0.18); --ctx-1:#6f6f66; --ctx-2:#57574f; --ctx-3:#45453e;
+    --paper:#0f1420; --paper-2:#161d2b; --navy:#e3e9f2; --ink:#ccd5e1; --ink-2:#93a0b2; --ink-3:#606c7e;
+    --rule:#27313f; --rule-strong:#6b7789; --grid:#1b2431; --accent:#6193d2; --accent-soft:rgba(97,147,210,0.15);
+    --accent-2:#d3737f; --ctx-1:#6d7889; --ctx-2:#525c6b; --ctx-3:#414a57;
   }
 
   * { box-sizing: border-box; }
   html, body { margin: 0; padding: 0; }
   body {
     background: var(--paper); color: var(--ink);
-    font-family: var(--font-grotesk); font-size: 16px; line-height: 1.55;
+    font-family: var(--font-sans); font-size: 16px; line-height: 1.62;
     -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
   }
-  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 32px; }
+  .col { max-width: 860px; margin: 0 auto; padding: 0 36px; }
   ::selection { background: var(--accent); color: #fff; }
-
-  .eyebrow, .mono { font-family: var(--font-mono); }
-  .eyebrow {
-    font-size: 0.7rem; letter-spacing: 0.24em; text-transform: uppercase;
-    color: var(--ink-2); margin: 0 0 18px; font-weight: 500;
-  }
   a { color: var(--accent); text-decoration: none; }
   a:hover { text-decoration: underline; }
-  h1, h2, h3 { text-wrap: balance; margin: 0; }
+  h1, h2, h3 { margin: 0; text-wrap: balance; }
+  sup { font-size: 0.7em; }
 
   /* ---------- sample strip ---------- */
   .sample-banner {
     display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
-    background: var(--ink); color: var(--paper);
-    padding: 7px 32px; font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.04em;
+    background: var(--navy); color: #fff;
+    padding: 7px 36px; font-family: var(--font-mono); font-size: 0.71rem; letter-spacing: 0.05em;
   }
-  .sample-banner strong { letter-spacing: 0.22em; font-weight: 700; }
-  .sample-banner .txt { opacity: 0.62; }
+  :root[data-theme="dark"] .sample-banner, .sample-banner { }
+  @media (prefers-color-scheme: dark) { .sample-banner { color: #0f1420; } }
+  :root[data-theme="dark"] .sample-banner { color: #0f1420; }
+  :root[data-theme="light"] .sample-banner { color: #fff; }
+  .sample-banner strong { letter-spacing: 0.2em; font-weight: 700; }
+  .sample-banner .txt { opacity: 0.7; }
 
   /* ---------- masthead ---------- */
-  .mast-top {
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 20px 0 18px; border-bottom: 2px solid var(--rule-ink);
-  }
-  .mast-top .name { font-weight: 700; letter-spacing: -0.01em; font-size: 1rem; }
-  .mast-top .name em { font-style: normal; color: var(--ink-3); font-weight: 500; font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.02em; }
-  .mast-right { display: flex; align-items: center; gap: 14px; }
-  .sample-tag {
-    font-family: var(--font-mono); font-size: 0.62rem; font-weight: 700; letter-spacing: 0.16em;
-    color: var(--amber); border: 1px solid var(--amber); padding: 2px 7px;
-  }
-  .theme-toggle {
-    font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase;
-    color: var(--ink); background: transparent; border: 1px solid var(--rule-ink); padding: 6px 12px; cursor: pointer;
-  }
-  .theme-toggle:hover { background: var(--ink); color: var(--paper); }
+  .masthead { padding: 22px 0 12px; border-bottom: 1px solid var(--rule); display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .masthead .institution { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-2); }
+  .mast-right { display: flex; align-items: center; gap: 12px; }
+  .sample-tag { font-family: var(--font-mono); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.14em; color: var(--accent-2); border: 1px solid var(--accent-2); padding: 2px 7px; }
+  .theme-toggle { font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-2); background: transparent; border: 1px solid var(--rule); padding: 5px 11px; cursor: pointer; }
+  .theme-toggle:hover { border-color: var(--navy); color: var(--navy); }
   .theme-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .rule-double { border-top: 3px double var(--rule-strong); margin-top: -1px; }
 
-  /* ---------- hero ---------- */
-  .hero { padding: 56px 0 20px; }
-  .hero h1 {
-    font-size: clamp(2.6rem, 7.2vw, 5.4rem); font-weight: 800; letter-spacing: -0.035em;
-    line-height: 0.96; max-width: 15ch; margin-bottom: 26px;
-  }
-  .hero h1 .u { color: var(--accent); }
-  .hero .lede { font-size: clamp(1.02rem, 1.6vw, 1.2rem); color: var(--ink-2); max-width: 60ch; }
-  .hero .lede b { color: var(--ink); font-weight: 700; }
+  /* ---------- title block ---------- */
+  .titleblock { padding: 40px 0 8px; }
+  .kicker { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
+  h1.title { font-family: var(--font-serif); font-weight: 600; font-size: clamp(2rem, 3.8vw, 2.95rem); line-height: 1.12; letter-spacing: -0.008em; color: var(--navy); max-width: 20ch; }
+  .byline { font-family: var(--font-mono); font-size: 0.8rem; color: var(--ink-2); margin-top: 20px; letter-spacing: 0.02em; }
+  .byline span { color: var(--ink-3); }
 
-  .hero-band { border-top: 1px solid var(--rule); border-bottom: 2px solid var(--rule-ink); margin-top: 40px; }
-  .hero-figure {
-    display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; flex-wrap: wrap;
-    padding: 22px 0 8px;
-  }
-  .bignum { font-family: var(--font-mono); font-size: clamp(3rem, 9vw, 6.4rem); font-weight: 700; letter-spacing: -0.04em; line-height: 0.9; color: var(--accent); font-variant-numeric: tabular-nums; }
-  .bigcap { font-family: var(--font-mono); font-size: 0.76rem; color: var(--ink-2); letter-spacing: 0.03em; max-width: 34ch; text-align: right; line-height: 1.5; }
-  .hero-chart { width: 100%; height: 300px; position: relative; }
-  .hero-chart svg { display: block; width: 100%; height: 100%; }
-  .hero-draw { transition: none; }
+  /* abstract */
+  .abstract { border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); margin: 30px 0 0; padding: 22px 0; }
+  .abstract .lab { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 10px; }
+  .abstract p { margin: 0; font-size: 1.02rem; color: var(--ink); max-width: 66ch; }
+  .abstract b { color: var(--navy); font-weight: 700; }
 
-  /* ---------- data strip (headline metrics) ---------- */
-  .datastrip {
-    display: grid; grid-template-columns: repeat(6, 1fr);
-    border-bottom: 1px solid var(--rule);
-  }
-  .ds-item { padding: 24px 20px 22px; border-right: 1px solid var(--rule); }
-  .ds-item:last-child { border-right: 0; }
-  .ds-num { font-family: var(--font-mono); font-size: 1.7rem; font-weight: 600; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; line-height: 1; }
-  .ds-num.pos { color: var(--accent); }
-  .ds-lab { font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); margin-top: 12px; }
-  .ds-sub { font-size: 0.78rem; color: var(--ink-3); margin-top: 4px; }
+  /* ---------- headline results box ---------- */
+  .results { border: 1px solid var(--rule); margin-top: 34px; }
+  .results .rhead { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-3); padding: 12px 18px; border-bottom: 1px solid var(--rule); background: var(--paper-2); }
+  .results .grid { display: grid; grid-template-columns: repeat(3, 1fr); }
+  .rcell { padding: 18px 18px 16px; border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+  .rcell:nth-child(3n) { border-right: 0; }
+  .rcell:nth-last-child(-n+3) { border-bottom: 0; }
+  .rcell .rn { font-family: var(--font-mono); font-size: 1.6rem; font-weight: 600; color: var(--navy); font-variant-numeric: tabular-nums; letter-spacing: -0.01em; line-height: 1; }
+  .rcell .rn.pos { color: var(--accent); }
+  .rcell .rl { font-family: var(--font-mono); font-size: 0.64rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); margin-top: 11px; }
+  .rcell .rs { font-size: 0.78rem; color: var(--ink-3); margin-top: 3px; }
 
-  /* ---------- ruled section grid ---------- */
-  .section { display: grid; grid-template-columns: 190px 1fr; gap: 40px; padding: 52px 0; border-top: 1px solid var(--rule); }
-  .section.strong { border-top: 2px solid var(--rule-ink); }
-  .section .aside { position: sticky; top: 24px; align-self: start; }
-  .section .aside .lab { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-2); }
-  .section .aside .meta { font-family: var(--font-mono); font-size: 0.72rem; color: var(--ink-3); margin-top: 14px; line-height: 1.7; }
-  .section .body { min-width: 0; }
-  .section h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); font-weight: 780; letter-spacing: -0.028em; line-height: 1.04; margin-bottom: 18px; }
-  .section .rq { font-size: 1.12rem; color: var(--ink-2); max-width: 60ch; }
-  .section .rq em { font-style: italic; color: var(--ink); }
-  .prose { color: var(--ink-2); max-width: 64ch; }
-  .prose p { margin: 0 0 14px; }
-  .prose b { color: var(--ink); font-weight: 700; }
+  /* ---------- sections ---------- */
+  section { padding: 44px 0; border-top: 1px solid var(--rule); margin-top: 8px; }
+  section:first-of-type { }
+  h2.sec { font-family: var(--font-serif); font-weight: 600; font-size: 1.5rem; color: var(--navy); letter-spacing: -0.01em; margin-bottom: 18px; }
+  h2.sec .n { color: var(--accent); font-variant-numeric: tabular-nums; }
+  .prose { color: var(--ink-2); max-width: 66ch; }
+  .prose p { margin: 0 0 15px; }
+  .prose b { color: var(--navy); font-weight: 700; }
+  .prose em { font-style: italic; color: var(--ink); }
 
-  /* signal definition list */
-  .defs { margin-top: 24px; border-top: 1px solid var(--rule); }
-  .def { display: grid; grid-template-columns: 160px 1fr; gap: 20px; padding: 18px 0; border-bottom: 1px solid var(--rule); }
-  .def .dk { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); padding-top: 3px; }
+  /* definition list for signal */
+  .defs { margin-top: 22px; border-top: 1px solid var(--rule); }
+  .def { display: grid; grid-template-columns: 150px 1fr; gap: 22px; padding: 16px 0; border-bottom: 1px solid var(--rule); }
+  .def .dk { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); padding-top: 3px; }
   .def .dv { color: var(--ink-2); font-size: 0.95rem; }
-  .def .dv b { color: var(--ink); font-weight: 700; }
-  .formula { font-family: var(--font-mono); font-size: 1.05rem; color: var(--ink); }
+  .def .dv b { color: var(--navy); font-weight: 700; }
+  .formula { font-family: var(--font-mono); font-size: 1.02rem; color: var(--navy); background: var(--paper-2); border: 1px solid var(--rule); padding: 8px 12px; display: inline-block; }
   .formula sub { color: var(--accent); }
   .formula .op { color: var(--accent); }
 
-  .callout { border-left: 3px solid var(--amber); padding: 4px 0 4px 22px; margin: 26px 0 0; color: var(--ink-2); max-width: 62ch; }
-  .callout b { color: var(--ink); font-weight: 700; }
+  .callout { border-left: 3px solid var(--accent-2); padding: 2px 0 2px 20px; margin: 24px 0 0; color: var(--ink-2); max-width: 64ch; font-size: 0.97rem; }
+  .callout b { color: var(--navy); font-weight: 700; }
 
-  /* ---------- chart blocks (full width, flat) ---------- */
-  .figure { padding: 48px 0; border-top: 1px solid var(--rule); }
-  .figure-head { display: flex; align-items: baseline; justify-content: space-between; gap: 20px; flex-wrap: wrap; margin-bottom: 4px; }
-  .figure-head .ft { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
-  .figure-head .fnum { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.14em; color: var(--accent); }
-  .figure-head h3 { font-size: 1.25rem; font-weight: 720; letter-spacing: -0.02em; }
-  .figure-head .note { font-family: var(--font-mono); font-size: 0.74rem; color: var(--ink-3); }
-
-  .controls { display: flex; align-items: center; gap: 4px; }
-  .seg { display: inline-flex; border: 1px solid var(--rule-ink); }
-  .seg button { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink); background: transparent; border: 0; border-right: 1px solid var(--rule-ink); padding: 6px 12px; cursor: pointer; }
+  /* ---------- exhibits ---------- */
+  .exhibit { margin: 26px 0 0; }
+  .exhibit-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 12px; }
+  .controls { display: flex; align-items: center; gap: 0; }
+  .seg { display: inline-flex; border: 1px solid var(--rule-strong); }
+  .seg button { font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--ink-2); background: transparent; border: 0; border-right: 1px solid var(--rule-strong); padding: 5px 11px; cursor: pointer; }
   .seg button:last-child { border-right: 0; }
-  .seg button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+  .seg button[aria-pressed="true"] { background: var(--navy); color: var(--paper); }
   .seg button:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
 
-  .legend { display: flex; flex-wrap: wrap; gap: 6px 20px; margin: 16px 0 6px; }
-  .legend .item { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 0.76rem; color: var(--ink-2); cursor: pointer; user-select: none; letter-spacing: 0.02em; }
+  .legend { display: flex; flex-wrap: wrap; gap: 6px 18px; margin: 4px 0 8px; }
+  .legend .item { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 0.74rem; color: var(--ink-2); cursor: pointer; user-select: none; }
   .legend .item[data-off="true"] { opacity: 0.34; }
-  .legend .swatch { width: 24px; height: 3px; display: inline-block; }
-  .legend .swatch.dot { width: 11px; height: 11px; }
+  .legend .swatch { width: 22px; height: 3px; display: inline-block; }
+  .legend .swatch.dot { width: 10px; height: 10px; }
 
-  .chart-wrap { position: relative; width: 100%; border-top: 1px solid var(--rule); }
+  .chart-wrap { position: relative; width: 100%; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding-top: 2px; }
   .chart-wrap svg { display: block; width: 100%; height: auto; }
   .axis-label { fill: var(--ink-3); font-family: var(--font-mono); font-size: 11px; }
   .grid-line { stroke: var(--grid); stroke-width: 1; }
-  .zero-line { stroke: var(--ink-3); stroke-width: 1; stroke-dasharray: 2 3; opacity: 0.55; }
-  .crosshair { stroke: var(--ink); stroke-width: 1; opacity: 0.5; }
+  .zero-line { stroke: var(--ink-3); stroke-width: 1; stroke-dasharray: 2 3; opacity: 0.5; }
+  .crosshair { stroke: var(--navy); stroke-width: 1; opacity: 0.4; }
   .series-label { font-family: var(--font-mono); font-size: 11px; font-weight: 700; }
 
-  .tooltip {
-    position: absolute; pointer-events: none; z-index: 9; opacity: 0; transition: opacity .08s;
-    background: var(--ink); color: var(--paper); padding: 9px 11px;
-    font-family: var(--font-mono); font-size: 11.5px; line-height: 1.5; min-width: 132px;
-    transform: translate(-50%, calc(-100% - 14px)); border: 0;
-  }
-  .tooltip .tt-date { opacity: 0.55; margin-bottom: 5px; letter-spacing: 0.05em; }
+  .caption { font-family: var(--font-serif); font-style: italic; font-size: 0.9rem; color: var(--ink-2); margin: 12px 0 0; max-width: 68ch; line-height: 1.5; }
+  .caption b { font-style: normal; font-weight: 700; color: var(--navy); font-family: var(--font-sans); }
+
+  .tooltip { position: absolute; pointer-events: none; z-index: 9; opacity: 0; transition: opacity .08s; background: var(--navy); color: var(--paper); padding: 9px 11px; font-family: var(--font-mono); font-size: 11.5px; line-height: 1.5; min-width: 132px; transform: translate(-50%, calc(-100% - 14px)); }
+  .tooltip .tt-date { opacity: 0.6; margin-bottom: 5px; letter-spacing: 0.04em; }
   .tooltip .tt-row { display: flex; justify-content: space-between; gap: 16px; }
   .tooltip .tt-k { display: inline-flex; align-items: center; gap: 7px; }
   .tooltip .tt-sw { width: 9px; height: 9px; }
   .tooltip .tt-v { font-variant-numeric: tabular-nums; }
 
-  .cost { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; border-top: 1px solid var(--rule); padding: 16px 0 0; margin-top: 8px; }
-  .cost label { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-2); white-space: nowrap; }
-  .cost input[type="range"] { flex: 1; min-width: 180px; accent-color: var(--amber); }
-  .cost .readout { font-family: var(--font-mono); font-size: 0.84rem; color: var(--ink); font-variant-numeric: tabular-nums; white-space: nowrap; }
-  .cost .readout b { color: var(--amber); }
+  .cost { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; border: 1px solid var(--rule); border-top: 0; padding: 14px 18px; }
+  .cost label { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-2); white-space: nowrap; }
+  .cost input[type="range"] { flex: 1; min-width: 180px; accent-color: var(--accent-2); }
+  .cost .readout { font-family: var(--font-mono); font-size: 0.82rem; color: var(--ink); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .cost .readout b { color: var(--accent-2); }
   .cost .readout .g { color: var(--ink-3); }
 
   /* ---------- tables ---------- */
-  .table-wrap { overflow-x: auto; border-top: 2px solid var(--rule-ink); margin-top: 4px; }
+  .table-wrap { overflow-x: auto; border-top: 2px solid var(--rule-strong); border-bottom: 2px solid var(--rule-strong); }
   table { border-collapse: collapse; width: 100%; font-size: 0.9rem; }
-  thead th { font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); font-weight: 500; text-align: right; padding: 12px 16px 12px 0; border-bottom: 1px solid var(--rule); white-space: nowrap; }
-  thead th:first-child, tbody td:first-child { text-align: left; padding-left: 0; }
-  tbody td { padding: 11px 16px 11px 0; border-bottom: 1px solid var(--rule); font-variant-numeric: tabular-nums; text-align: right; }
+  thead th { font-family: var(--font-mono); font-size: 0.64rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); font-weight: 500; text-align: right; padding: 11px 16px 10px 0; border-bottom: 1px solid var(--rule); white-space: nowrap; }
+  thead th:first-child, tbody td:first-child { text-align: left; }
+  tbody td { padding: 10px 16px 10px 0; border-bottom: 1px solid var(--rule); font-variant-numeric: tabular-nums; text-align: right; }
   tbody tr:last-child td { border-bottom: 0; }
-  tbody tr:hover td { color: var(--ink); background: var(--paper-2); }
+  tbody tr:hover td { background: var(--paper-2); color: var(--navy); }
   tbody tr.hl td { background: var(--accent-soft); }
-  .tk { font-family: var(--font-mono); font-weight: 700; color: var(--ink); }
+  .tk { font-family: var(--font-mono); font-weight: 700; color: var(--navy); }
   .co { color: var(--ink-2); }
   .sector-tag { font-family: var(--font-mono); font-size: 0.72rem; color: var(--ink-3); }
   .scorebar-wrap { display: inline-flex; align-items: center; gap: 10px; justify-content: flex-end; }
   .scorebar { height: 5px; background: var(--accent); display: inline-block; }
   .num-mono { font-family: var(--font-mono); }
 
-  .limits { list-style: none; padding: 0; margin: 8px 0 0; }
-  .limits li { padding: 14px 0 14px 30px; border-bottom: 1px solid var(--rule); position: relative; color: var(--ink-2); max-width: 68ch; }
+  .limits { list-style: none; padding: 0; margin: 6px 0 0; counter-reset: lim; }
+  .limits li { padding: 13px 0 13px 30px; border-bottom: 1px solid var(--rule); position: relative; color: var(--ink-2); max-width: 70ch; }
   .limits li:last-child { border-bottom: 0; }
-  .limits li::before { content: "△"; position: absolute; left: 0; color: var(--amber); font-size: 0.82rem; top: 15px; }
-  .limits li b { color: var(--ink); font-weight: 700; }
+  .limits li::before { counter-increment: lim; content: "(" counter(lim, lower-roman) ")"; position: absolute; left: 0; color: var(--accent-2); font-family: var(--font-mono); font-size: 0.78rem; top: 14px; }
+  .limits li b { color: var(--navy); font-weight: 700; }
 
-  .stack { display: flex; flex-wrap: wrap; gap: 0; margin-top: 24px; border: 1px solid var(--rule); width: fit-content; max-width: 100%; }
-  .stack .chip { font-family: var(--font-mono); font-size: 0.74rem; color: var(--ink-2); padding: 8px 14px; border-right: 1px solid var(--rule); }
+  .stack { display: flex; flex-wrap: wrap; gap: 0; margin-top: 22px; border: 1px solid var(--rule); width: fit-content; max-width: 100%; }
+  .stack .chip { font-family: var(--font-mono); font-size: 0.72rem; color: var(--ink-2); padding: 7px 13px; border-right: 1px solid var(--rule); }
   .stack .chip:last-child { border-right: 0; }
 
-  footer { border-top: 2px solid var(--rule-ink); padding: 28px 0 0; color: var(--ink-3); font-size: 0.84rem; margin-top: 8px; }
-  footer .mono { font-family: var(--font-mono); font-size: 0.76rem; }
+  footer { border-top: 3px double var(--rule-strong); padding: 24px 0 64px; color: var(--ink-3); font-size: 0.82rem; }
+  footer .mono { font-family: var(--font-mono); font-size: 0.75rem; }
+  footer p { margin: 0 0 8px; max-width: 70ch; }
 
-  @media (max-width: 760px) {
-    .wrap { padding: 0 20px; }
-    .sample-banner { padding: 7px 20px; }
-    .datastrip { grid-template-columns: 1fr 1fr; }
-    .ds-item { border-bottom: 1px solid var(--rule); }
-    .section { grid-template-columns: 1fr; gap: 20px; padding: 40px 0; }
-    .section .aside { position: static; }
+  @media (max-width: 720px) {
+    .col { padding: 0 22px; } .sample-banner, .masthead { }
+    .sample-banner { padding: 7px 22px; }
+    .results .grid { grid-template-columns: 1fr 1fr; }
+    .rcell:nth-child(3n) { border-right: 1px solid var(--rule); }
+    .rcell:nth-child(2n) { border-right: 0; }
+    .rcell:nth-last-child(-n+3) { border-bottom: 1px solid var(--rule); }
+    .rcell:nth-last-child(-n+2) { border-bottom: 0; }
     .def { grid-template-columns: 1fr; gap: 6px; }
-    .hero-figure { flex-direction: column; align-items: flex-start; }
-    .bigcap { text-align: left; }
   }
   @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
 </style>
@@ -263,128 +235,126 @@
   <span class="txt">preview build — a work-in-progress portfolio page. All figures are real, computed from the research notebook.</span>
 </div>
 
-<div class="wrap">
-  <div class="mast-top">
-    <div class="name">Shaotong (Tom) Li &nbsp;<em>MMF · Quantitative Research</em></div>
+<div class="col">
+  <div class="masthead">
+    <div class="institution">Shaotong (Tom) Li &nbsp;·&nbsp; Quantitative Research</div>
     <div class="mast-right">
       <span class="sample-tag">SAMPLE</span>
       <button class="theme-toggle" id="themeBtn" aria-label="Toggle color theme">Theme</button>
     </div>
   </div>
+  <div class="rule-double"></div>
 
-  <!-- ===== hero ===== -->
-  <header class="hero">
-    <p class="eyebrow">Quantitative Equity Research · Toronto</p>
-    <h1>Ranking the market's <span class="u">winners</span>, and pricing what it costs to hold them.</h1>
-    <p class="lede">
-      <b>MMF, University of Toronto</b> · CFA Level II. A researcher with a risk-systems
-      background at <b>Ontario Teachers'</b> and <b>Scotiabank</b>, building systematic
-      equity strategies end-to-end — data, signal, cross-sectional testing, and honest
-      cost accounting. Below is one project, live and interactive.
-    </p>
-  </header>
-
-  <div class="hero-band">
-    <div class="hero-figure">
-      <div class="bignum" id="hero-num">×13.5</div>
-      <div class="bigcap">Growth of $1 in the top-momentum quintile,<br>Jul 2017 → May 2026, gross of costs.</div>
-    </div>
-    <div class="hero-chart" id="hero-chart"></div>
+  <!-- ===== title ===== -->
+  <div class="titleblock">
+    <p class="kicker">Equity Factor Research · Working Paper</p>
+    <h1 class="title">Cross-Sectional 12-1 Momentum in U.S. Large Caps</h1>
+    <p class="byline">Shaotong (Tom) Li &nbsp;·&nbsp; <span id="byline-uni"></span> &nbsp;·&nbsp; <span id="byline-period"></span></p>
   </div>
 
-  <!-- ===== headline metrics ===== -->
-  <div class="datastrip" id="datastrip"></div>
+  <div class="abstract">
+    <div class="lab">Abstract</div>
+    <p>
+      I test whether a stock's past 12-month return, <em>excluding</em> the most recent month, predicts
+      its cross-sectional return over the following month within a liquid S&amp;P&nbsp;500 universe.
+      Ranking monthly into quintiles, the top quintile earns a <b>Sharpe of 1.20</b> gross, but a
+      market-neutral long–short of the extremes retains only a <b>modest, cost-sensitive premium</b>;
+      the monthly rank information coefficient is positive but weak. Results are presented gross and
+      net of a simple transaction-cost model, with limitations stated plainly.
+    </p>
+  </div>
 
-  <!-- ===== the project ===== -->
-  <section class="section strong">
-    <div class="aside">
-      <div class="lab">The Project</div>
-      <div class="meta" id="proj-meta"></div>
+  <!-- ===== headline results ===== -->
+  <div class="results">
+    <div class="rhead">Headline results</div>
+    <div class="grid" id="results-grid"></div>
+  </div>
+
+  <!-- ===== 1. data & signal ===== -->
+  <section>
+    <h2 class="sec"><span class="n">1.</span> Data and signal construction</h2>
+    <div class="prose">
+      <p>Daily prices are retrieved from Yahoo Finance and cleaned for OHLC consistency, non-positive
+      prices, and zero-volume flats. All signals and forward returns are shifted strictly <em>within</em>
+      each ticker to preclude look-ahead.</p>
     </div>
-    <div class="body">
-      <p class="eyebrow" style="margin-bottom:14px">Selected work · equity factor</p>
-      <h2>Cross-Sectional 12-1 Momentum</h2>
-      <p class="rq">
-        Does a stock's past 12-month return, <em>skipping</em> the most recent month,
-        predict its rank return over the following month? A reproducible S&amp;P&nbsp;500
-        backtest — from raw prices to net-of-cost, market-neutral performance.
-      </p>
-      <div class="defs">
-        <div class="def">
-          <div class="dk">Signal</div>
-          <div class="dv">
-            <div class="formula">MOM<sub>i,t</sub> = P<sub>i,t&#8722;21</sub> <span class="op">/</span> P<sub>i,t&#8722;252</sub> <span class="op">&#8722;</span> 1</div>
-            <div style="margin-top:8px">Return from ~12 months ago to ~1 month ago; the one-month skip avoids short-term reversal. Composited with a 6-1 term and cross-sectionally z-scored each month.</div>
+    <div class="defs">
+      <div class="def">
+        <div class="dk">Signal</div>
+        <div class="dv">
+          <div class="formula">MOM<sub>i,t</sub> = P<sub>i,t&#8722;21</sub> <span class="op">/</span> P<sub>i,t&#8722;252</sub> <span class="op">&#8722;</span> 1</div>
+          <div style="margin-top:8px">Return from ~12 to ~1 months ago; the one-month skip avoids short-term reversal. Composited with a 6-1 term and cross-sectionally z-scored (winsorized at 1%/99%) each month.</div>
+        </div>
+      </div>
+      <div class="def">
+        <div class="dk">Universe</div>
+        <div class="dv">S&amp;P&nbsp;500 members, rebuilt monthly to the <b>top 100 by 21-day average dollar volume</b>, price ≥ $5, ≥ 1yr history.</div>
+      </div>
+      <div class="def">
+        <div class="dk">Portfolio</div>
+        <div class="dv"><b>Long Q5</b>, <b>short Q1</b>, equal-weighted, rebalanced monthly; costs modeled at 10&nbsp;bps per side.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 2. results ===== -->
+  <section>
+    <h2 class="sec"><span class="n">2.</span> Results</h2>
+    <div class="prose">
+      <p>Exhibit&nbsp;1 shows the cumulative growth of $1 invested in each momentum quintile.
+      The monotone spread between the top and bottom quintiles is the object of interest;
+      note, however, that all quintiles rise with the broad market.</p>
+    </div>
+
+    <!-- exhibit 1 -->
+    <div class="exhibit">
+      <div class="exhibit-head">
+        <div class="legend" id="q-legend"></div>
+        <div class="controls">
+          <div class="seg" role="group" aria-label="Y-axis scale">
+            <button id="scaleLog" aria-pressed="true">Log</button>
+            <button id="scaleLin" aria-pressed="false">Linear</button>
           </div>
         </div>
-        <div class="def">
-          <div class="dk">Universe</div>
-          <div class="dv">S&amp;P&nbsp;500 members, rebuilt monthly to the <b>top 100 by 21-day average dollar volume</b>, price ≥ $5, ≥ 1yr history.</div>
-        </div>
-        <div class="def">
-          <div class="dk">Portfolio</div>
-          <div class="dv"><b>Long Q5</b>, <b>short Q1</b>, equal-weighted, rebalanced monthly. Costs modeled at 10&nbsp;bps per side.</div>
-        </div>
       </div>
-      <div class="callout">
-        <b>The honest read —</b> the top quintile compounds impressively, but much of that is
-        simply equity-market exposure. The real test is the <b>market-neutral long-short</b>,
-        which earns only a modest, cost-sensitive premium, and the monthly information
-        coefficient is positive but weak. Presented un-oversold, on purpose.
+      <div class="chart-wrap" id="q-chart"></div>
+      <p class="caption"><b>Exhibit 1.</b> Cumulative growth of $1 by momentum quintile, monthly rebalanced, gross of costs. Q5 (winners) and Q1 (losers) emphasized; Q2–Q4 shown for context. Log scale by default.</p>
+    </div>
+
+    <div class="prose" style="margin-top:34px">
+      <p>Isolating the strategy from market direction, Exhibit&nbsp;2 plots the market-neutral
+      long–short (Q5 minus Q1). Transaction costs are decisive here: the interactive control
+      recomputes the net path and Sharpe ratio at any assumed cost per side.</p>
+    </div>
+
+    <!-- exhibit 2 -->
+    <div class="exhibit">
+      <div class="exhibit-head"><div class="legend" id="ls-legend"></div></div>
+      <div class="chart-wrap" id="ls-chart"></div>
+      <div class="cost">
+        <label for="costRange">Cost / side</label>
+        <input type="range" id="costRange" min="0" max="50" step="1" value="10" />
+        <div class="readout"><b id="costBps">10 bps</b> &nbsp;·&nbsp; net Sharpe <b id="netSharpe">0.43</b> &nbsp;·&nbsp; net &times;<span id="netMult" class="num-mono">2.00</span> &nbsp;<span class="g">(gross Sharpe <span id="grossSharpe" class="num-mono">0.50</span>)</span></div>
       </div>
+      <p class="caption"><b>Exhibit 2.</b> Market-neutral long–short cumulative return, gross vs. net of costs. Drag the cost slider to vary the assumed per-side cost; net Sharpe and terminal multiple update live.</p>
     </div>
-  </section>
 
-  <!-- ===== figure 1: quintiles ===== -->
-  <section class="figure">
-    <div class="figure-head">
-      <div class="ft"><span class="fnum">FIG.01</span><h3>Growth of $1 by momentum quintile</h3></div>
-      <div class="controls">
-        <div class="seg" role="group" aria-label="Y-axis scale">
-          <button id="scaleLog" aria-pressed="true">Log</button>
-          <button id="scaleLin" aria-pressed="false">Linear</button>
-        </div>
-      </div>
+    <div class="prose" style="margin-top:34px">
+      <p>Exhibit&nbsp;3 reports the monthly rank information coefficient — the Spearman correlation
+      between the composite factor score and the subsequent one-month return. The mean is positive
+      but small relative to its volatility, consistent with a weak, noisy predictor.</p>
     </div>
-    <div class="figure-head"><div class="note" id="q-range"></div></div>
-    <div class="legend" id="q-legend"></div>
-    <div class="chart-wrap" id="q-chart"></div>
-  </section>
 
-  <!-- ===== figure 2: long-short + cost ===== -->
-  <section class="figure">
-    <div class="figure-head">
-      <div class="ft"><span class="fnum">FIG.02</span><h3>Market-neutral long-short (Q5 &#8722; Q1)</h3></div>
-      <div class="note">drag the slider — net performance recomputes live</div>
+    <!-- exhibit 3 -->
+    <div class="exhibit">
+      <div class="exhibit-head"><div class="legend" id="ic-legend"></div></div>
+      <div class="chart-wrap" id="ic-chart"></div>
+      <p class="caption"><b>Exhibit 3.</b> Monthly rank IC, Spearman(factor score, next-month return). Positive months in steel blue, negative in burgundy; dashed line marks the sample mean.</p>
     </div>
-    <div class="legend" id="ls-legend"></div>
-    <div class="chart-wrap" id="ls-chart"></div>
-    <div class="cost">
-      <label for="costRange">Cost / side</label>
-      <input type="range" id="costRange" min="0" max="50" step="1" value="10" />
-      <div class="readout">
-        <b id="costBps">10 bps</b> &nbsp;·&nbsp; net Sharpe <b id="netSharpe">0.43</b>
-        &nbsp;·&nbsp; net &times;<span id="netMult" class="num-mono">2.00</span>
-        &nbsp;<span class="g">(gross Sharpe <span id="grossSharpe" class="num-mono">0.50</span>)</span>
-      </div>
-    </div>
-  </section>
 
-  <!-- ===== figure 3: IC ===== -->
-  <section class="figure">
-    <div class="figure-head">
-      <div class="ft"><span class="fnum">FIG.03</span><h3>Monthly rank information coefficient</h3></div>
-      <div class="note">Spearman(factor, next-month return)</div>
-    </div>
-    <div class="legend" id="ic-legend"></div>
-    <div class="chart-wrap" id="ic-chart"></div>
-  </section>
-
-  <!-- ===== summary table ===== -->
-  <section class="section">
-    <div class="aside"><div class="lab">Performance</div><div class="meta">Annualized by bucket.<br>Gross of costs.</div></div>
-    <div class="body">
-      <h2 style="font-size:1.3rem;margin-bottom:14px">By quintile bucket</h2>
+    <!-- table 1 -->
+    <div class="exhibit" style="margin-top:38px">
+      <p class="caption" style="margin:0 0 10px"><b>Table 1.</b> Annualized performance by quintile bucket, gross of costs.</p>
       <div class="table-wrap">
         <table id="summaryTable">
           <thead><tr><th>Bucket</th><th>Ann. return</th><th>Ann. Sharpe</th></tr></thead>
@@ -392,47 +362,44 @@
         </table>
       </div>
     </div>
-  </section>
 
-  <!-- ===== latest signal ===== -->
-  <section class="section">
-    <div class="aside"><div class="lab">Latest Signal</div><div class="meta" id="snap-meta"></div></div>
-    <div class="body">
-      <h2 style="font-size:1.3rem;margin-bottom:6px">What the model is long today</h2>
-      <p class="prose" style="margin-bottom:16px">The current top-quintile (Q5) basket, ranked by composite momentum score.</p>
+    <!-- table 2 -->
+    <div class="exhibit" style="margin-top:38px">
+      <p class="caption" style="margin:0 0 10px"><b>Table 2.</b> Current top-quintile (Q5) constituents, ranked by composite momentum score — snapshot <span id="snap-date"></span>.</p>
       <div class="table-wrap">
         <table id="holdingsTable">
           <thead><tr><th>Ticker</th><th>Company</th><th>Sector</th><th>Score</th></tr></thead>
           <tbody></tbody>
         </table>
       </div>
-      <p class="mono" style="color:var(--ink-3);font-size:0.78rem;margin-top:14px" id="sector-note"></p>
+      <p class="mono" style="color:var(--ink-3);font-size:0.77rem;margin-top:12px" id="sector-note"></p>
     </div>
   </section>
 
-  <!-- ===== method & limits ===== -->
-  <section class="section">
-    <div class="aside"><div class="lab">Method &amp; Limits</div><div class="meta">What this does<br>— and doesn't — prove.</div></div>
-    <div class="body">
-      <div class="prose">
-        <p>Prices come from Yahoo Finance and are cleaned (OHLC sanity checks, non-positive prices, zero-volume flats). Signals and forward returns are shifted strictly <b>within</b> each ticker to avoid look-ahead; cross-sectional z-scores are winsorized at the 1st/99th percentile before ranking. Standard errors on the predictive regression are <b>clustered by date</b>, which pulls a naïve t-stat of 3.8 down to a more honest 1.6.</p>
-      </div>
-      <ul class="limits">
-        <li><b>Survivorship bias.</b> The universe uses today's S&amp;P 500 membership, so delisted names are absent — this flatters the backtest.</li>
-        <li><b>Close-to-close returns.</b> No open/VWAP execution modeling; real fills would differ.</li>
-        <li><b>Constant linear costs.</b> 10 bps/side is a simplification — no market impact, borrow, or spread dynamics.</li>
-        <li><b>No risk model.</b> Buckets aren't sector- or beta-neutralized, so the Q5 basket carries obvious tilts (currently ~90% technology).</li>
-      </ul>
-      <div class="stack">
-        <span class="chip">Python 3.11</span><span class="chip">pandas</span><span class="chip">NumPy</span>
-        <span class="chip">statsmodels</span><span class="chip">SciPy</span><span class="chip">yfinance</span>
-      </div>
+  <!-- ===== 3. limitations ===== -->
+  <section>
+    <h2 class="sec"><span class="n">3.</span> Limitations</h2>
+    <div class="prose">
+      <p>The predictive regression's naïve t-statistic of 3.8 falls to <b>1.6</b> once standard errors
+      are clustered by date — the honest significance of the signal. Four further caveats bound the
+      interpretation:</p>
+    </div>
+    <ul class="limits">
+      <li><b>Survivorship bias.</b> The universe uses current S&amp;P 500 membership, so delisted names are absent, flattering the backtest.</li>
+      <li><b>Close-to-close returns.</b> No open/VWAP execution modeling; realized fills would differ.</li>
+      <li><b>Constant linear costs.</b> Ten basis points per side omits market impact, borrow, and spread dynamics.</li>
+      <li><b>No risk model.</b> Buckets are not sector- or beta-neutralized, so the Q5 basket carries pronounced factor tilts (presently ~90% technology).</li>
+    </ul>
+    <div class="stack">
+      <span class="chip">Python 3.11</span><span class="chip">pandas</span><span class="chip">NumPy</span>
+      <span class="chip">statsmodels</span><span class="chip">SciPy</span><span class="chip">yfinance</span>
     </div>
   </section>
 
   <footer>
-    <p>Built from a single reproducible research notebook — data pipeline, signal, and backtest. Every figure here is computed from the notebook's output, not hand-entered.</p>
-    <p class="mono" style="margin-top:8px;color:var(--ink-3)">Prices via Yahoo Finance · research illustration only · not investment advice.</p>
+    <p>Every figure in this paper is computed directly from a single reproducible research notebook —
+    data pipeline, signal construction, and backtest — not hand-entered.</p>
+    <p class="mono">Data: Yahoo Finance. For research illustration only; not investment advice.</p>
   </footer>
 </div>
 
@@ -1940,7 +1907,6 @@
   const DATA = JSON.parse(document.getElementById("data").textContent);
   const cssvar = (n) => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
   const tooltip = document.getElementById("tooltip");
-  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   const themeBtn = document.getElementById("themeBtn");
   themeBtn.addEventListener("click", () => {
@@ -1956,33 +1922,11 @@
   const niceMax = (v) => { const p = Math.pow(10, Math.floor(Math.log10(v))); return Math.ceil(v / p) * p; };
   function svgEl(tag, attrs) { const e = document.createElementNS("http://www.w3.org/2000/svg", tag); for (const k in attrs) e.setAttribute(k, attrs[k]); return e; }
 
-  /* ---------- hero curve ---------- */
-  function buildHero() {
-    const el = document.getElementById("hero-chart"); el.innerHTML = "";
-    const W = 1200, Hh = 300, padT = 18, padB = 6;
-    const q5 = DATA.cum_quantile.Q5, n = q5.length;
-    const vmin = Math.min.apply(null, q5), vmax = Math.max.apply(null, q5);
-    const lo = Math.log10(vmin * 0.95), hi = Math.log10(vmax * 1.04);
-    const x = (i) => (i / (n - 1)) * W;
-    const y = (v) => padT + (1 - (Math.log10(v) - lo) / (hi - lo)) * (Hh - padT - padB);
-    const svg = svgEl("svg", { viewBox: `0 0 ${W} ${Hh}`, preserveAspectRatio: "none", "aria-hidden": "true" });
-    // faint reference gridlines at powers
-    [1, 2, 5, 10].forEach((v) => { if (v < vmin || v > vmax) return; const yy = y(v); svg.appendChild(svgEl("line", { x1: 0, x2: W, y1: yy, y2: yy, stroke: cssvar("--grid"), "stroke-width": 1 })); });
-    let d = "", area = "";
-    q5.forEach((v, i) => { const px = x(i), py = y(v); d += (i ? "L" : "M") + px + " " + py + " "; });
-    area = d + `L ${W} ${Hh} L 0 ${Hh} Z`;
-    svg.appendChild(svgEl("path", { d: area, fill: cssvar("--accent-soft"), stroke: "none" }));
-    const line = svgEl("path", { d, fill: "none", stroke: cssvar("--accent"), "stroke-width": 2.5, "stroke-linejoin": "round", "stroke-linecap": "round", class: "hero-draw" });
-    svg.appendChild(line);
-    el.appendChild(svg);
-    if (!reduce) { const L = line.getTotalLength(); line.style.strokeDasharray = L; line.style.strokeDashoffset = L; line.getBoundingClientRect(); line.style.transition = "stroke-dashoffset 1.8s cubic-bezier(.22,.61,.36,1)"; line.style.strokeDashoffset = "0"; }
-  }
-
   /* ---------- line chart ---------- */
   function LineChart(mountId, cfg) {
     const mount = document.getElementById(mountId);
     const state = { log: cfg.log || false, off: {} };
-    const H = 380, padL = 52, padR = 60, padT = 16, padB = 30;
+    const H = 360, padL = 52, padR = 60, padT = 16, padB = 30;
     function defaultYTicks(vmin, vmax, useLog) {
       if (useLog) { const out = []; let p = Math.floor(Math.log10(vmin)); for (; p <= Math.ceil(Math.log10(vmax)); p++) { [1, 2, 5].forEach((m) => { const v = m * Math.pow(10, p); if (v >= vmin * 0.9 && v <= vmax * 1.1) out.push(v); }); } return out; }
       const step = niceMax(vmax) / 5; const out = []; for (let v = 0; v <= vmax * 1.05; v += step) out.push(+v.toFixed(6)); return out;
@@ -2038,7 +1982,7 @@
 
   /* ---------- bar chart (IC) ---------- */
   function BarChart(mountId, cfg) {
-    const mount = document.getElementById(mountId); const H = 300, padL = 46, padR = 20, padT = 14, padB = 28;
+    const mount = document.getElementById(mountId); const H = 290, padL = 46, padR = 20, padT = 14, padB = 28;
     function render() {
       mount.innerHTML = ""; const W = Math.max(320, mount.clientWidth), vals = cfg.values, dates = cfg.dates, n = vals.length;
       let vmax = 0; vals.forEach((v) => { if (Math.abs(v) > vmax) vmax = Math.abs(v); }); vmax = Math.ceil(vmax * 10) / 10;
@@ -2046,10 +1990,10 @@
       const svg = svgEl("svg", { viewBox: `0 0 ${W} ${H}`, preserveAspectRatio: "none", role: "img" });
       [-vmax, -vmax / 2, 0, vmax / 2, vmax].forEach((tv) => { const yy = y(tv); svg.appendChild(svgEl("line", { x1: padL, x2: W - padR, y1: yy, y2: yy, class: tv === 0 ? "zero-line" : "grid-line" })); const lab = svgEl("text", { x: padL - 8, y: yy + 3, "text-anchor": "end", class: "axis-label" }); lab.textContent = (tv > 0 ? "+" : "") + tv.toFixed(1); svg.appendChild(lab); });
       yearTicks(dates).forEach((t) => { if (t.i === 0) return; const lab = svgEl("text", { x: x(t.i) + bw / 2, y: H - padB + 18, "text-anchor": "middle", class: "axis-label" }); lab.textContent = t.label; svg.appendChild(lab); });
-      const posC = cssvar("--accent"), negC = cssvar("--amber");
+      const posC = cssvar("--accent"), negC = cssvar("--accent-2");
       vals.forEach((v, i) => { const yy = y(v), y0 = y(0); svg.appendChild(svgEl("rect", { x: x(i), y: Math.min(yy, y0), width: bw, height: Math.abs(yy - y0), fill: v >= 0 ? posC : negC })); });
-      const meanY = y(cfg.mean); svg.appendChild(svgEl("line", { x1: padL, x2: W - padR, y1: meanY, y2: meanY, stroke: cssvar("--ink"), "stroke-width": 1.5, "stroke-dasharray": "5 4", opacity: 0.8 }));
-      const ml = svgEl("text", { x: W - padR, y: meanY - 5, "text-anchor": "end", class: "series-label", fill: cssvar("--ink") }); ml.textContent = "mean " + (cfg.mean >= 0 ? "+" : "") + cfg.mean.toFixed(3); svg.appendChild(ml);
+      const meanY = y(cfg.mean); svg.appendChild(svgEl("line", { x1: padL, x2: W - padR, y1: meanY, y2: meanY, stroke: cssvar("--navy"), "stroke-width": 1.5, "stroke-dasharray": "5 4", opacity: 0.85 }));
+      const ml = svgEl("text", { x: W - padR, y: meanY - 5, "text-anchor": "end", class: "series-label", fill: cssvar("--navy") }); ml.textContent = "mean " + (cfg.mean >= 0 ? "+" : "") + cfg.mean.toFixed(3); svg.appendChild(ml);
       const hit = svgEl("rect", { x: padL, y: padT, width: W - padL - padR, height: H - padT - padB, fill: "transparent" }); svg.appendChild(hit);
       hit.addEventListener("mousemove", (ev) => { const rect = svg.getBoundingClientRect(); const px = (ev.clientX - rect.left) / rect.width * W; let i = Math.floor((px - padL) / (W - padL - padR) * n); i = Math.max(0, Math.min(n - 1, i)); tooltip.innerHTML = `<div class="tt-date">${dates[i]}</div><div class="tt-row"><span class="tt-k"><span class="tt-sw" style="background:${vals[i] >= 0 ? posC : negC}"></span>Rank IC</span><span class="tt-v">${(vals[i] >= 0 ? "+" : "") + vals[i].toFixed(3)}</span></div>`; tooltip.style.opacity = 1; const wr = mount.getBoundingClientRect(); tooltip.style.left = (wr.left + window.scrollX + (x(i) + bw / 2) / W * wr.width) + "px"; tooltip.style.top = (wr.top + window.scrollY + padT + 6) + "px"; });
       hit.addEventListener("mouseleave", () => { tooltip.style.opacity = 0; });
@@ -2060,27 +2004,25 @@
 
   /* ---------- content ---------- */
   const H = DATA.headline, M = DATA.meta, IC = DATA.ic;
-  document.getElementById("hero-num").textContent = "×" + DATA.cum_quantile.Q5[DATA.cum_quantile.Q5.length - 1].toFixed(1);
+  document.getElementById("byline-uni").textContent = M.universe;
+  document.getElementById("byline-period").textContent = M.period_start.slice(0, 7) + " – " + M.period_end.slice(0, 7);
+  document.getElementById("snap-date").textContent = M.last_snapshot;
 
-  const strip = [
+  const results = [
     { label: "Q5 ann. Sharpe", num: H.q5_sharpe.toFixed(2), pos: true, sub: "top quintile, long only" },
     { label: "Q5 ann. return", num: fmtPct(H.q5_annual_return), pos: true, sub: "gross of costs" },
-    { label: "L/S net Sharpe", num: H.ls_net_sharpe.toFixed(2), sub: "neutral · 10 bps/side" },
-    { label: "Mean monthly IC", num: (IC.mean >= 0 ? "+" : "") + IC.mean.toFixed(3), sub: Math.round(IC.hit_rate * 100) + "% months +" },
-    { label: "Avg Q5 turnover", num: Math.round(H.avg_q5_turnover * 100) + "%", sub: "per rebalance" },
-    { label: "Window", num: M.n_months + "mo", sub: M.period_start.slice(0, 4) + "–" + M.period_end.slice(0, 4) },
+    { label: "L/S net Sharpe", num: H.ls_net_sharpe.toFixed(2), sub: "market-neutral, 10 bps/side" },
+    { label: "Mean monthly IC", num: (IC.mean >= 0 ? "+" : "") + IC.mean.toFixed(3), sub: Math.round(IC.hit_rate * 100) + "% of months positive" },
+    { label: "Avg Q5 turnover", num: Math.round(H.avg_q5_turnover * 100) + "%", sub: "per monthly rebalance" },
+    { label: "Sample window", num: M.n_months + " mo", sub: M.period_start.slice(0, 4) + "–" + M.period_end.slice(0, 4) },
   ];
-  document.getElementById("datastrip").innerHTML = strip.map((t) => `<div class="ds-item"><div class="ds-num ${t.pos ? "pos" : ""}">${t.num}</div><div class="ds-lab">${t.label}</div><div class="ds-sub">${t.sub}</div></div>`).join("");
-
-  document.getElementById("proj-meta").innerHTML = M.universe + "<br>" + M.period_start + " → " + M.period_end + "<br>" + M.n_months + " months · monthly rebal.";
-  document.getElementById("q-range").textContent = M.universe + " · " + M.period_start + " → " + M.period_end;
-  document.getElementById("snap-meta").innerHTML = "Snapshot<br>" + M.last_snapshot;
+  document.getElementById("results-grid").innerHTML = results.map((t) => `<div class="rcell"><div class="rn ${t.pos ? "pos" : ""}">${t.num}</div><div class="rl">${t.label}</div><div class="rs">${t.sub}</div></div>`).join("");
 
   document.querySelector("#summaryTable tbody").innerHTML = DATA.summary.map((r) => `<tr${r.bucket === "Q5" ? ' class="hl"' : ""}><td class="tk">${r.bucket}</td><td>${fmtPct(r.annual_return)}</td><td>${r.annual_sharpe.toFixed(2)}</td></tr>`).join("");
 
   const maxScore = Math.max.apply(null, DATA.holdings.map((h) => h.score));
-  document.querySelector("#holdingsTable tbody").innerHTML = DATA.holdings.map((h) => { const w = Math.max(6, (h.score / maxScore) * 84); return `<tr><td class="tk">${h.ticker}</td><td class="co" style="text-align:left">${h.company}</td><td class="sector-tag" style="text-align:left">${h.sector}</td><td><span class="scorebar-wrap"><span class="num-mono">${h.score.toFixed(2)}</span><span class="scorebar" style="width:${w}px"></span></span></td></tr>`; }).join("");
-  const sc = DATA.sector_counts; document.getElementById("sector-note").textContent = "Sector mix — " + Object.keys(sc).map((k) => `${k} (${sc[k]})`).join(" · ") + ". Concentration is a real risk; see limits.";
+  document.querySelector("#holdingsTable tbody").innerHTML = DATA.holdings.map((h) => { const w = Math.max(6, (h.score / maxScore) * 80); return `<tr><td class="tk">${h.ticker}</td><td class="co" style="text-align:left">${h.company}</td><td class="sector-tag" style="text-align:left">${h.sector}</td><td><span class="scorebar-wrap"><span class="num-mono">${h.score.toFixed(2)}</span><span class="scorebar" style="width:${w}px"></span></span></td></tr>`; }).join("");
+  const sc = DATA.sector_counts; document.getElementById("sector-note").textContent = "Sector composition — " + Object.keys(sc).map((k) => `${k} (${sc[k]})`).join(" · ") + ".";
 
   let qChart, lsChart, icChart, netCache = computeNet(10);
   function computeNet(bps) {
@@ -2093,31 +2035,31 @@
     const cq = DATA.cum_quantile;
     qChart = LineChart("q-chart", { dates: DATA.dates, legendId: "q-legend", log: true, baseOne: true, yFmt: (v) => "×" + (v >= 10 ? v.toFixed(0) : v.toFixed(1)), tt: (v) => "×" + v.toFixed(2),
       series: () => [
-        { name: "Q5 winners", color: cssvar("--accent"), values: cq.Q5, width: 2.6, label: "Q5" },
-        { name: "Q4", color: cssvar("--ctx-1"), values: cq.Q4, width: 1.2, opacity: 0.9 },
-        { name: "Q3", color: cssvar("--ctx-2"), values: cq.Q3, width: 1.2, opacity: 0.9 },
-        { name: "Q2", color: cssvar("--ctx-3"), values: cq.Q2, width: 1.2, opacity: 0.9 },
-        { name: "Q1 losers", color: cssvar("--amber"), values: cq.Q1, width: 2.6, label: "Q1" },
+        { name: "Q5 winners", color: cssvar("--accent"), values: cq.Q5, width: 2.4, label: "Q5" },
+        { name: "Q4", color: cssvar("--ctx-1"), values: cq.Q4, width: 1.1, opacity: 0.9 },
+        { name: "Q3", color: cssvar("--ctx-2"), values: cq.Q3, width: 1.1, opacity: 0.9 },
+        { name: "Q2", color: cssvar("--ctx-3"), values: cq.Q2, width: 1.1, opacity: 0.9 },
+        { name: "Q1 losers", color: cssvar("--accent-2"), values: cq.Q1, width: 2.4, label: "Q1" },
       ] });
   }
   function buildLsChart() {
     lsChart = LineChart("ls-chart", { dates: DATA.dates, legendId: "ls-legend", log: false, baseOne: true, yFloor: 0.7, yFmt: (v) => "×" + v.toFixed(1), tt: (v) => "×" + v.toFixed(2),
-      series: () => [ { name: "Gross", color: cssvar("--accent"), values: DATA.cum_ls.gross, width: 2.4, label: "gross" }, { name: "Net of cost", color: cssvar("--amber"), values: netCache.cum, width: 2.4, label: "net" } ] });
+      series: () => [ { name: "Gross", color: cssvar("--accent"), values: DATA.cum_ls.gross, width: 2.2, label: "gross" }, { name: "Net of cost", color: cssvar("--accent-2"), values: netCache.cum, width: 2.2, label: "net" } ] });
   }
   function buildIcChart() {
     icChart = BarChart("ic-chart", { dates: IC.dates, values: IC.values, mean: IC.mean });
-    document.getElementById("ic-legend").innerHTML = `<span class="item"><span class="swatch dot" style="background:${cssvar("--accent")}"></span>IC &gt; 0</span><span class="item"><span class="swatch dot" style="background:${cssvar("--amber")}"></span>IC &lt; 0</span><span class="item"><span class="swatch" style="height:0;border-top:2px dashed ${cssvar("--ink")}"></span>mean ${(IC.mean >= 0 ? "+" : "") + IC.mean.toFixed(3)}</span>`;
+    document.getElementById("ic-legend").innerHTML = `<span class="item"><span class="swatch dot" style="background:${cssvar("--accent")}"></span>IC &gt; 0</span><span class="item"><span class="swatch dot" style="background:${cssvar("--accent-2")}"></span>IC &lt; 0</span><span class="item"><span class="swatch" style="height:0;border-top:2px dashed ${cssvar("--navy")}"></span>mean ${(IC.mean >= 0 ? "+" : "") + IC.mean.toFixed(3)}</span>`;
   }
   const costRange = document.getElementById("costRange");
   document.getElementById("grossSharpe").textContent = H.ls_gross_sharpe.toFixed(2);
   function updateCost() { const bps = +costRange.value; netCache = computeNet(bps); document.getElementById("costBps").textContent = bps + " bps"; document.getElementById("netSharpe").textContent = netCache.sharpe.toFixed(2); document.getElementById("netMult").textContent = netCache.mult.toFixed(2); if (lsChart) lsChart.render(); }
   costRange.addEventListener("input", updateCost);
-  function rerenderAll() { buildHero(); if (qChart) qChart.render(); if (lsChart) lsChart.render(); buildIcChart(); }
+  function rerenderAll() { if (qChart) qChart.render(); if (lsChart) lsChart.render(); buildIcChart(); }
   const bLog = document.getElementById("scaleLog"), bLin = document.getElementById("scaleLin");
   bLog.addEventListener("click", () => { qChart.state.log = true; bLog.setAttribute("aria-pressed", "true"); bLin.setAttribute("aria-pressed", "false"); qChart.render(); });
   bLin.addEventListener("click", () => { qChart.state.log = false; bLog.setAttribute("aria-pressed", "false"); bLin.setAttribute("aria-pressed", "true"); qChart.render(); });
 
-  buildHero(); buildQChart(); buildLsChart(); buildIcChart(); updateCost();
+  buildQChart(); buildLsChart(); buildIcChart(); updateCost();
   let rt; window.addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(rerenderAll, 120); });
 })();
 </script>
