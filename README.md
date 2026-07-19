@@ -1,19 +1,16 @@
-# Quantitative Research — Showcase (Sample)
+# Shaotong (Tom) Li — Quantitative Research (Sample)
 
-Live page: **https://tomlst.github.io/showcase/**
+Live: **https://tomlst.github.io/showcase/**
 
-A work-in-progress portfolio page by **Shaotong (Tom) Li** (MMF, University of Toronto).
-The current build showcases one project:
+A work-in-progress personal page.
 
-### Cross-Sectional 12-1 Momentum
-A reproducible S&P 500 factor backtest — from raw prices to net-of-cost,
-market-neutral performance. Interactive: quintile growth curves (log/linear),
-a market-neutral long-short with a **live transaction-cost slider**, and a
-monthly rank-IC chart.
+- **`index.html`** — homepage: short bio, background, and selected research.
+- **`momentum.html`** — working paper: *Cross-Sectional 12-1 Momentum in U.S. Large Caps*.
+  A reproducible S&P 500 factor backtest — from raw prices to net-of-cost, market-neutral
+  performance — with interactive charts (quintile growth, market-neutral long-short with a
+  live transaction-cost slider, and monthly rank IC). All figures are computed from a research
+  notebook, not hand-entered.
 
-All figures on the page are computed from a research notebook (Python / pandas /
-statsmodels / SciPy / yfinance), not hand-entered. The page is a single
-self-contained HTML file with no external dependencies.
+Self-contained static HTML, no external dependencies.
 
-> **Sample / preview.** Contact details intentionally omitted for now.
-> For research illustration only — not investment advice.
+> Sample / preview. For research illustration only — not investment advice.
