@@ -365,7 +365,7 @@
 
     <!-- table 2 -->
     <div class="exhibit" style="margin-top:38px">
-      <p class="caption" style="margin:0 0 10px"><b>Table 2.</b> Current top-quintile (Q5) constituents, ranked by composite momentum score — snapshot <span id="snap-date"></span>.</p>
+      <p class="caption" style="margin:0 0 10px"><b>Table 2.</b> Current top-quintile constituents, ranked <em>within each sector</em> (sector-neutral) — snapshot <span id="snap-date"></span>. The backtest above uses unconditional quintiles; this view mirrors the notebook's sector-neutral holdings.</p>
       <div class="table-wrap">
         <table id="holdingsTable">
           <thead><tr><th>Ticker</th><th>Company</th><th>Sector</th><th>Score</th></tr></thead>
@@ -388,7 +388,7 @@
       <li><b>Survivorship bias.</b> The universe uses current S&amp;P 500 membership, so delisted names are absent, flattering the backtest.</li>
       <li><b>Close-to-close returns.</b> No open/VWAP execution modeling; realized fills would differ.</li>
       <li><b>Constant linear costs.</b> Ten basis points per side omits market impact, borrow, and spread dynamics.</li>
-      <li><b>No risk model.</b> Buckets are not sector- or beta-neutralized, so the Q5 basket carries pronounced factor tilts (presently ~<span id="it-share">85</span>% technology).</li>
+      <li><b>Concentration in the backtest.</b> The performance series use unconditional quintiles, so the backtested Q5 basket carries pronounced factor tilts (presently ~<span id="it-share">85</span>% technology). Table 2 shows the sector-neutral alternative, but the return series are not re-derived under it.</li>
     </ul>
     <div class="stack">
       <span class="chip">Python 3.11</span><span class="chip">pandas</span><span class="chip">NumPy</span>
@@ -413,7 +413,8 @@
     "n_months": 107,
     "rebalance": "Monthly",
     "cost_per_side_bps": 10,
-    "last_snapshot": "2026-05-29"
+    "last_snapshot": "2026-05-29",
+    "tech_share_global_q5": 0.85
   },
   "dates": [
     "2017-07-31",
@@ -1834,46 +1835,10 @@
       "score": 1.126
     },
     {
-      "ticker": "GLW",
-      "company": "Corning Inc.",
-      "sector": "Information Technology",
-      "score": 0.732
-    },
-    {
-      "ticker": "AMD",
-      "company": "Advanced Micro Devices",
-      "sector": "Information Technology",
-      "score": 0.659
-    },
-    {
-      "ticker": "LRCX",
-      "company": "Lam Research",
-      "sector": "Information Technology",
-      "score": 0.657
-    },
-    {
       "ticker": "VRT",
       "company": "Vertiv",
       "sector": "Industrials",
       "score": 0.558
-    },
-    {
-      "ticker": "MRVL",
-      "company": "Marvell Technology",
-      "sector": "Information Technology",
-      "score": 0.349
-    },
-    {
-      "ticker": "AMAT",
-      "company": "Applied Materials",
-      "sector": "Information Technology",
-      "score": 0.322
-    },
-    {
-      "ticker": "KLAC",
-      "company": "KLA Corporation",
-      "sector": "Information Technology",
-      "score": 0.303
     },
     {
       "ticker": "CAT",
@@ -1882,27 +1847,82 @@
       "score": 0.3
     },
     {
-      "ticker": "ON",
-      "company": "ON Semiconductor",
-      "sector": "Information Technology",
-      "score": 0.28
+      "ticker": "GOOGL",
+      "company": "Alphabet Inc. (Class A)",
+      "sector": "Communication Services",
+      "score": 0.13
     },
     {
-      "ticker": "MPWR",
-      "company": "Monolithic Power Systems",
-      "sector": "Information Technology",
-      "score": 0.26
+      "ticker": "C",
+      "company": "Citigroup",
+      "sector": "Financials",
+      "score": -0.04
     },
     {
-      "ticker": "GEV",
-      "company": "GE Vernova",
-      "sector": "Industrials",
-      "score": 0.219
+      "ticker": "XOM",
+      "company": "ExxonMobil",
+      "sector": "Energy",
+      "score": -0.14
+    },
+    {
+      "ticker": "JNJ",
+      "company": "Johnson & Johnson",
+      "sector": "Health Care",
+      "score": -0.158
+    },
+    {
+      "ticker": "GS",
+      "company": "Goldman Sachs",
+      "sector": "Financials",
+      "score": -0.158
+    },
+    {
+      "ticker": "MRK",
+      "company": "Merck & Co.",
+      "sector": "Health Care",
+      "score": -0.164
+    },
+    {
+      "ticker": "MS",
+      "company": "Morgan Stanley",
+      "sector": "Financials",
+      "score": -0.172
+    },
+    {
+      "ticker": "NEE",
+      "company": "NextEra Energy",
+      "sector": "Utilities",
+      "score": -0.201
+    },
+    {
+      "ticker": "WMT",
+      "company": "Walmart",
+      "sector": "Consumer Staples",
+      "score": -0.267
+    },
+    {
+      "ticker": "AMZN",
+      "company": "Amazon",
+      "sector": "Consumer Discretionary",
+      "score": -0.289
+    },
+    {
+      "ticker": "TJX",
+      "company": "TJX Companies",
+      "sector": "Consumer Discretionary",
+      "score": -0.31
     }
   ],
   "sector_counts": {
-    "Information Technology": 17,
-    "Industrials": 3
+    "Information Technology": 9,
+    "Financials": 3,
+    "Industrials": 2,
+    "Consumer Discretionary": 2,
+    "Health Care": 2,
+    "Energy": 1,
+    "Communication Services": 1,
+    "Utilities": 1,
+    "Consumer Staples": 1
   }
 }</script>
 <script>
@@ -2016,7 +2036,7 @@
     document.getElementById("t-naive").textContent = DATA.regression.t_naive.toFixed(1);
     document.getElementById("t-clustered").textContent = DATA.regression.t_clustered.toFixed(1);
   }
-  document.getElementById("it-share").textContent = Math.round((DATA.sector_counts["Information Technology"] || 0) / DATA.holdings.length * 100);
+  document.getElementById("it-share").textContent = Math.round((DATA.meta.tech_share_global_q5 || 0) * 100);
 
   const results = [
     { label: "Q5 ann. Sharpe", num: H.q5_sharpe.toFixed(2), pos: true, sub: "top quintile, long only" },
