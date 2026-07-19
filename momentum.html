@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Cross-Sectional 12-1 Momentum — Shaotong (Tom) Li (Sample)</title>
+<title>Cross-Sectional 12-1 Momentum · Shaotong (Tom) Li (Sample)</title>
 <meta name="description" content="A reproducible S&P 500 backtest of 12-1 momentum, from signal to net-of-cost performance." />
 <style>html{color-scheme:light dark}</style>
 </head>
@@ -14,7 +14,7 @@
     --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     --font-mono: "SF Mono", "Cascadia Code", "JetBrains Mono", "Consolas", "Liberation Mono", monospace;
 
-    /* light — institutional working paper: navy + white, steel/burgundy data */
+    /* light: institutional working paper, navy + white, steel/burgundy data */
     --paper: #ffffff;
     --paper-2: #f5f7f9;
     --navy: #15294d;
@@ -234,7 +234,7 @@
 
 <div class="sample-banner" role="note">
   <strong>SAMPLE</strong>
-  <span class="txt">preview build — a work-in-progress portfolio page. All figures are real, computed from the research notebook.</span>
+  <span class="txt">preview build: a work-in-progress portfolio page. All figures are real, computed from the research notebook.</span>
 </div>
 
 <div class="col">
@@ -342,7 +342,7 @@
     </div>
 
     <div class="prose" style="margin-top:34px">
-      <p>Exhibit&nbsp;3 reports the monthly rank information coefficient — the Spearman correlation
+      <p>Exhibit&nbsp;3 reports the monthly rank information coefficient, the Spearman correlation
       between the composite factor score and the subsequent one-month return. The mean is positive
       but small relative to its volatility, consistent with a weak, noisy predictor.</p>
     </div>
@@ -367,7 +367,7 @@
 
     <!-- table 2 -->
     <div class="exhibit" style="margin-top:38px">
-      <p class="caption" style="margin:0 0 10px"><b>Table 2.</b> Current top-quintile constituents, ranked <em>within each sector</em> (sector-neutral) — snapshot <span id="snap-date"></span>. The backtest above uses unconditional quintiles; this view mirrors the notebook's sector-neutral holdings.</p>
+      <p class="caption" style="margin:0 0 10px"><b>Table 2.</b> Current top-quintile constituents, ranked <em>within each sector</em> (sector-neutral), snapshot <span id="snap-date"></span>. The backtest above uses unconditional quintiles; this view mirrors the notebook's sector-neutral holdings.</p>
       <div class="table-wrap">
         <table id="holdingsTable">
           <thead><tr><th>Ticker</th><th>Company</th><th>Sector</th><th>Score</th></tr></thead>
@@ -383,7 +383,7 @@
     <h2 class="sec"><span class="n">3.</span> Limitations</h2>
     <div class="prose">
       <p>The univariate predictive regression's naïve t-statistic of <span id="t-naive">5.9</span> falls to
-      <b><span id="t-clustered">2.3</span></b> once standard errors are clustered by date — a more
+      <b><span id="t-clustered">2.3</span></b> once standard errors are clustered by date, a more
       defensible estimate of the signal's significance. Four further caveats bound the interpretation:</p>
     </div>
     <ul class="limits">
@@ -399,8 +399,8 @@
   </section>
 
   <footer>
-    <p>Every figure in this paper is computed directly from a single reproducible research notebook —
-    data pipeline, signal construction, and backtest — not hand-entered.</p>
+    <p>Every figure in this paper is computed directly from a single reproducible research notebook
+    (data pipeline, signal construction, and backtest), not hand-entered.</p>
     <p class="mono">Data: Yahoo Finance. For research illustration only; not investment advice.</p>
   </footer>
 </div>
@@ -2054,7 +2054,7 @@
 
   const maxScore = Math.max.apply(null, DATA.holdings.map((h) => h.score));
   document.querySelector("#holdingsTable tbody").innerHTML = DATA.holdings.map((h) => { const w = Math.max(6, (h.score / maxScore) * 80); return `<tr><td class="tk">${h.ticker}</td><td class="co" style="text-align:left">${h.company}</td><td class="sector-tag" style="text-align:left">${h.sector}</td><td><span class="scorebar-wrap"><span class="num-mono">${h.score.toFixed(2)}</span><span class="scorebar" style="width:${w}px"></span></span></td></tr>`; }).join("");
-  const sc = DATA.sector_counts; document.getElementById("sector-note").textContent = "Sector composition — " + Object.keys(sc).map((k) => `${k} (${sc[k]})`).join(" · ") + ".";
+  const sc = DATA.sector_counts; document.getElementById("sector-note").textContent = "Sector composition: " + Object.keys(sc).map((k) => `${k} (${sc[k]})`).join(" · ") + ".";
 
   let qChart, lsChart, icChart, netCache = computeNet(10);
   function computeNet(bps) {
