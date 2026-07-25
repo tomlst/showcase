@@ -309,8 +309,10 @@
     <h2 class="sec"><span class="n">2.</span> Results</h2>
     <div class="prose">
       <p>Exhibit&nbsp;1 shows the cumulative growth of $1 invested in each momentum quintile.
-      The monotone spread between the top and bottom quintiles is the object of interest;
-      note, however, that all quintiles rise with the broad market.</p>
+      The effect is concentrated in the top quintile (Q5); the lower quintiles are bunched and
+      non-monotone, and the second quintile (Q2), not the bottom, is the weakest performer. That is
+      precisely why the long-short shorts Q2 rather than Q1 (Exhibit&nbsp;2). All quintiles rise with
+      the broad market.</p>
     </div>
 
     <!-- exhibit 1 -->
@@ -325,7 +327,7 @@
         </div>
       </div>
       <div class="chart-wrap" id="q-chart"></div>
-      <p class="caption"><b>Exhibit 1.</b> Cumulative growth of $1 by momentum quintile, monthly rebalanced, gross of costs. Q5 (winners) and Q1 (losers) emphasized; Q2–Q4 shown for context. Log scale by default.</p>
+      <p class="caption"><b>Exhibit 1.</b> Cumulative growth of $1 by momentum quintile, monthly rebalanced, gross of costs. The strategy's two legs, Q5 (long) and Q2 (short), are emphasized; Q1, Q3, Q4 shown for context. Log scale by default.</p>
     </div>
 
     <div class="prose" style="margin-top:34px">
@@ -2071,11 +2073,11 @@
     const cq = DATA.cum_quantile;
     qChart = LineChart("q-chart", { dates: DATA.dates, legendId: "q-legend", log: true, baseOne: true, yFmt: (v) => "×" + (v >= 10 ? v.toFixed(0) : v.toFixed(1)), tt: (v) => "×" + v.toFixed(2),
       series: () => [
-        { name: "Q5 winners", color: cssvar("--accent"), values: cq.Q5, width: 2.4, label: "Q5" },
-        { name: "Q4", color: cssvar("--ctx-1"), values: cq.Q4, width: 1.1, opacity: 0.9 },
+        { name: "Q5 (long leg)", color: cssvar("--accent"), values: cq.Q5, width: 2.4, label: "Q5" },
+        { name: "Q1", color: cssvar("--ctx-1"), values: cq.Q1, width: 1.1, opacity: 0.9 },
         { name: "Q3", color: cssvar("--ctx-2"), values: cq.Q3, width: 1.1, opacity: 0.9 },
-        { name: "Q2", color: cssvar("--ctx-3"), values: cq.Q2, width: 1.1, opacity: 0.9 },
-        { name: "Q1 losers", color: cssvar("--accent-2"), values: cq.Q1, width: 2.4, label: "Q1" },
+        { name: "Q4", color: cssvar("--ctx-3"), values: cq.Q4, width: 1.1, opacity: 0.9 },
+        { name: "Q2 (short leg)", color: cssvar("--accent-2"), values: cq.Q2, width: 2.4, label: "Q2" },
       ] });
   }
   function buildLsChart() {
