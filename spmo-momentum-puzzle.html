@@ -120,7 +120,7 @@
   .exhibit { margin: 28px 0 0; }
   .plate { display: block; background: var(--plate); border: 1px solid var(--rule); padding: 8px; }
   .plate img { display: block; width: 100%; height: auto; }
-  .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; align-items: start; }
   .caption { font-family: var(--font-serif); font-style: italic; font-size: 0.94rem; color: var(--ink-2); margin: 12px 0 0; line-height: 1.5; }
   .caption b { font-style: normal; font-weight: 700; color: var(--navy); font-family: var(--font-sans); }
 
@@ -231,8 +231,8 @@
       <a class="plate" href="spmo-momentum-puzzle/headline_is.png"><img src="spmo-momentum-puzzle/headline_is.png" alt="Growth of one dollar in-sample, SPMO proxy vs HAR volatility targeting" loading="lazy"></a>
       <a class="plate" href="spmo-momentum-puzzle/headline_oos.png"><img src="spmo-momentum-puzzle/headline_oos.png" alt="Out-of-sample growth of one dollar and drawdowns" loading="lazy"></a>
     </div>
-    <p class="caption"><b>Exhibit 1.</b> Left: growth of $1 over the whole in-sample period, SPMO proxy vs HAR volatility
-    targeting (targeting starts in Apr-1998; before that both are fully invested). Right: the pre-registered
+    <p class="caption"><b>Exhibit 1.</b> Left: growth of $1 and drawdown over the whole in-sample period, SPMO proxy vs HAR
+    volatility targeting (targeting starts in Apr-1998; before that both are fully invested). Right: the pre-registered
     out-of-sample test, Apr-1978 to Mar-1995, with the S&amp;P 500 and EWMA targeting. Monthly total returns before costs.</p>
   </div>
 
