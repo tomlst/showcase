@@ -50,10 +50,11 @@
   .hero .lede b { color: var(--navy); font-weight: 700; }
 
   /* credentials strip */
-  .creds { display: flex; flex-wrap: wrap; gap: 0; margin-top: 30px; border: 1px solid var(--rule); width: fit-content; max-width: 100%; }
-  .creds .c { font-family: var(--font-mono); font-size: 0.74rem; color: var(--ink-2); padding: 9px 15px; border-right: 1px solid var(--rule); }
-  .creds .c:last-child { border-right: 0; }
+  .creds { margin-top: 30px; border: 1px solid var(--rule); width: fit-content; max-width: 100%; }
+  .creds .c { display: grid; grid-template-columns: 96px 1fr; gap: 14px; font-family: var(--font-mono); font-size: 0.74rem; color: var(--ink-2); padding: 9px 15px; border-bottom: 1px solid var(--rule); }
+  .creds .c:last-child { border-bottom: 0; }
   .creds .c b { color: var(--navy); font-weight: 700; }
+  @media (max-width: 600px) { .creds .c { grid-template-columns: 1fr; gap: 2px; } }
 
   section { padding: 44px 0; border-top: 1px solid var(--rule); margin-top: 40px; }
   h2.sec { font-family: var(--font-serif); font-weight: 600; font-size: 1.4rem; color: var(--navy); margin-bottom: 20px; }
@@ -111,9 +112,9 @@
       <b>honestly</b>, gross and net, with their limitations in plain sight.
     </p>
     <div class="creds">
-      <span class="c"><b>MMF</b> · University of Toronto</span>
-      <span class="c"><b>CFA</b> Level II passed</span>
-      <span class="c">Python · C++ · R · SQL</span>
+      <div class="c"><b>Education</b><span>MMF, University of Toronto · CFA Level II passed</span></div>
+      <div class="c"><b>Research</b><span>Quantitative equity research · Factor models · Portfolio construction · Volatility modelling</span></div>
+      <div class="c"><b>Tools</b><span>Python · SQL · C++ · R</span></div>
     </div>
   </header>
 
