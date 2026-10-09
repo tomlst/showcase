@@ -135,6 +135,7 @@
   tbody tr.hl td { background: var(--accent-soft); color: var(--navy); font-weight: 600; }
   tbody tr.sep td { border-top: 1px solid var(--rule-strong); }
   .tk { font-family: var(--font-mono); font-weight: 700; color: var(--navy); }
+  .nc { text-transform: none; }
   .dim { color: var(--ink-3); }
 
   .limits { list-style: none; padding: 0; margin: 6px 0 0; counter-reset: lim; }
@@ -207,8 +208,8 @@
     <div class="grid">
       <div class="rcell"><div class="rn">0.992</div><div class="rl">Correlation with SPMO</div>
         <div class="rs">CRSP replica vs the ETF, Nov-2015 to Dec-2025; tracking error 2.0% a year.</div></div>
-      <div class="rcell"><div class="rn">+0.7%</div><div class="rl">Proxy alpha, t = 0.58</div>
-        <div class="rs">FF5 + UMD, 1995–2025. Market β 1.03, UMD 0.29, SMB −0.17; R² 0.82.</div></div>
+      <div class="rcell"><div class="rn">+0.7%</div><div class="rl">SPMO proxy alpha</div>
+        <div class="rs">t = 0.58, not significant. FF5 + UMD, 1995–2025: market β 1.03, UMD 0.29, SMB −0.17; R² 0.82.</div></div>
       <div class="rcell"><div class="rn">0.92</div><div class="rl">Large-cap winners, 2015–2025</div>
         <div class="rs">Sharpe of ~20 equal-weighted large winners, vs 0.93 for the proxy. 0.45 the decade before.</div></div>
       <div class="rcell"><div class="rn">0.51 → 0.72</div><div class="rl">Sharpe, HAR-targeted (in-sample)</div>
@@ -583,7 +584,7 @@
     <div class="exhibit">
       <p class="caption" style="margin:0 0 10px"><b>Table 7.</b> HAR volatility targeting, in-sample. z is the Jobson-Korkie test (Memmel correction) of the Sharpe difference.</p>
       <div class="table-wrap"><table>
-        <thead><tr><th>Period</th><th>Portfolio</th><th>Annual return</th><th>Volatility</th><th>Sharpe</th><th>Max drawdown</th><th>Avg exposure</th><th>z</th></tr></thead>
+        <thead><tr><th>Period</th><th>Portfolio</th><th>Annual return</th><th>Volatility</th><th>Sharpe</th><th>Max drawdown</th><th>Avg exposure</th><th><span class="nc">z</span></th></tr></thead>
         <tbody>
           <tr><td>Apr-1998 to Dec-2025</td><td>SPMO proxy</td><td>9.8%</td><td>17.6%</td><td>0.51</td><td>−64.1%</td><td>1.00</td><td></td></tr>
           <tr class="hl"><td></td><td>HAR target 15%</td><td>11.2%</td><td>13.2%</td><td>0.72</td><td>−35.1%</td><td>0.92</td><td>+2.55</td></tr>
@@ -624,7 +625,7 @@
     <div class="exhibit">
       <p class="caption" style="margin:0 0 10px"><b>Table 8.</b> Four forecasts, Apr-2000 to Dec-2025 (309 months). R² is out-of-sample, log volatility. z is the Jobson-Korkie test of the Sharpe difference.</p>
       <div class="table-wrap"><table>
-        <thead><tr><th>Forecast</th><th>R² (log vol)</th><th>Annual return</th><th>Sharpe</th><th>Max drawdown</th><th>z vs unmanaged</th><th>z vs HAR</th></tr></thead>
+        <thead><tr><th>Forecast</th><th><span class="nc">R² (log vol)</span></th><th>Annual return</th><th>Sharpe</th><th>Max drawdown</th><th><span class="nc">z</span> vs unmanaged</th><th><span class="nc">z</span> vs HAR</th></tr></thead>
         <tbody>
           <tr><td>Unmanaged proxy</td><td class="dim">—</td><td>7.2%</td><td>0.39</td><td>−64.1%</td><td></td><td></td></tr>
           <tr class="hl"><td>HAR</td><td>0.353</td><td>9.8%</td><td>0.65</td><td>−35.1%</td><td>+2.93</td><td></td></tr>
@@ -663,7 +664,7 @@
     <div class="exhibit">
       <p class="caption" style="margin:0 0 10px"><b>Table 9.</b> Out-of-sample results, Apr-1978 to Mar-1995 (the months both forecasts cover).</p>
       <div class="table-wrap"><table>
-        <thead><tr><th>Portfolio</th><th>Annual return</th><th>Volatility</th><th>Sharpe</th><th>Max drawdown</th><th>Avg exposure</th><th>z vs proxy</th></tr></thead>
+        <thead><tr><th>Portfolio</th><th>Annual return</th><th>Volatility</th><th>Sharpe</th><th>Max drawdown</th><th>Avg exposure</th><th><span class="nc">z</span> vs proxy</th></tr></thead>
         <tbody>
           <tr><td>SPMO proxy</td><td>18.1%</td><td>18.0%</td><td>0.61</td><td>−31.4%</td><td>1.00</td><td></td></tr>
           <tr><td>S&amp;P 500</td><td>15.3%</td><td>15.1%</td><td>0.53</td><td>−29.6%</td><td>1.00</td><td></td></tr>
