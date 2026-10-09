@@ -189,8 +189,8 @@
   <div class="abstract">
     <div class="lab">Abstract</div>
     <p>The academic momentum premium has faded since the late 1990s, yet the Invesco S&amp;P 500 Momentum ETF
-    (SPMO) compounded at <b>17.5% a year</b> against 14.3% for the S&amp;P 500 over 2015–2025. I replicate its
-    index with CRSP data (correlation <b>0.992</b> with SPMO) and decompose the strategy into its three
+    (SPMO) compounded at <b>17.5% a year</b> against 14.3% for the S&amp;P 500 over 2015–2025. This study replicates its
+    index with CRSP data (correlation <b>0.992</b> with SPMO) and decomposes the strategy into its three
     ingredients: momentum selection, market-cap weighting and a volatility adjustment.</p>
     <p>In-sample, SPMO's returns are <b>largely explained by market beta, momentum exposure and a large-cap
     tilt</b>, with a positive but statistically insignificant alpha. Its edge over 2015–2025 came from holding the
@@ -733,12 +733,12 @@
   <section id="appendix">
     <h2 class="sec"><span class="n">A.</span> Appendix</h2>
     <div class="prose">
-      <p><b>Tried, not adopted.</b> I also explored alternative weighting schemes within the momentum quintile
+      <p><b>Tried, not adopted.</b> The study also explored alternative weighting schemes within the momentum quintile
       (momentum squared, rank-based weights, lagged market cap, tighter weight caps and S&amp;P's own score), a barbell
       of large winners and small caps, and volatility forecasts estimated on daily samples. The daily-sample forecasts
       did not improve volatility targeting. The weighting schemes and the barbell looked better in some periods, but
       they were selected after inspecting in-sample results, so their in-sample performance is not reliable
-      evidence; I did not adopt them.</p>
+      evidence, and they were not adopted.</p>
       <p><b>Reproducing.</b> Eleven numbered scripts rebuild every number and figure on this page from WRDS
       (<code>01_fetch_wrds.py</code> … <code>11_post_oos.py</code>); each writes a <code>summary.md</code> under
       <code>output/</code>. WRDS data are licensed and not included in the repository.</p>
