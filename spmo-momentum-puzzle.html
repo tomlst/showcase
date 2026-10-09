@@ -200,7 +200,7 @@
     <p>The academic momentum premium has faded since the late 1990s, yet the Invesco S&amp;P 500 Momentum ETF
     (SPMO) compounded at <b>17.5% a year</b> against 14.3% for the S&amp;P 500 over 2015–2025. This study replicates its
     index with CRSP data (correlation <b>0.992</b> with SPMO) and decomposes the strategy into its three
-    ingredients: momentum selection, market-cap weighting and a volatility adjustment.</p>
+    ingredients, namely momentum selection, market-cap weighting and a volatility adjustment.</p>
     <p>In-sample, SPMO's returns are <b>largely explained by market beta, momentum exposure and a large-cap
     tilt</b>, with a positive but statistically insignificant alpha. Its edge over 2015–2025 came from holding the
     S&amp;P 500's <b>large-cap momentum winners</b> as a group, not from concentrated single-stock bets; the
@@ -217,7 +217,7 @@
       <div class="rcell"><div class="rn">0.992</div><div class="rl">Correlation with SPMO</div>
         <div class="rs">CRSP replica vs the ETF, Nov-2015 to Dec-2025; tracking error 2.0% a year.</div></div>
       <div class="rcell"><div class="rn">+0.7%</div><div class="rl">SPMO proxy alpha</div>
-        <div class="rs">t = 0.58, not significant. FF5 + UMD, 1995–2025: market β 1.03, UMD 0.29, SMB −0.17; R² 0.82.</div></div>
+        <div class="rs">t = 0.58, not significant. FF5 + UMD over 1995–2025 gives market β 1.03, UMD 0.29, SMB −0.17 and R² 0.82.</div></div>
       <div class="rcell"><div class="rn">0.92</div><div class="rl">Large-cap winners, 2015–2025</div>
         <div class="rs">Sharpe of ~20 equal-weighted large winners, vs 0.93 for the proxy. 0.45 the decade before.</div></div>
       <div class="rcell"><div class="rn">0.51 → 0.72</div><div class="rl">Sharpe, HAR-targeted (in-sample)</div>
@@ -240,8 +240,8 @@
       <a class="plate" href="spmo-momentum-puzzle/headline_is.png"><img src="spmo-momentum-puzzle/headline_is.png" alt="Growth of one dollar in-sample, SPMO proxy vs HAR volatility targeting" loading="lazy"></a>
       <a class="plate" href="spmo-momentum-puzzle/headline_oos.png"><img src="spmo-momentum-puzzle/headline_oos.png" alt="Out-of-sample growth of one dollar and drawdowns" loading="lazy"></a>
     </div>
-    <p class="caption"><b>Exhibit 1.</b> Left: growth of $1 and drawdown over the whole in-sample period, SPMO proxy vs HAR
-    volatility targeting (targeting starts in Apr-1998; before that both are fully invested). Right: the pre-registered
+    <p class="caption"><b>Exhibit 1.</b> The left panel shows growth of $1 and drawdown over the whole in-sample period, SPMO proxy vs HAR
+    volatility targeting (targeting starts in Apr-1998; before that both are fully invested). The right panel shows the pre-registered
     out-of-sample test, Apr-1978 to Mar-1995, with the S&amp;P 500 and EWMA targeting; the dashed line marks the October 1987
     crash. Monthly total returns before costs.</p>
   </div>
@@ -250,9 +250,9 @@
     <a href="#s0"><span>0</span>Motivation and research questions</a>
     <a href="#s1"><span>1</span>Data</a>
     <a href="#s2"><span>2</span>Replicating SPMO</a>
-    <a href="#s3"><span>3</span>Attribution: a 2 × 2 × 2 design</a>
+    <a href="#s3"><span>3</span>Attribution with a 2 × 2 × 2 design</a>
     <a href="#s4"><span>4</span>Is momentum × market cap real?</a>
-    <a href="#s5"><span>5</span>Improvement: volatility targeting</a>
+    <a href="#s5"><span>5</span>Improvement through volatility targeting</a>
     <a href="#s6"><span>6</span>Out-of-sample test</a>
     <a href="#s7"><span>7</span>Conclusions</a>
     <a href="#s8"><span>8</span>Limitations</a>
@@ -263,15 +263,15 @@
   <section id="s0">
     <h2 class="sec"><span class="n">0.</span> Motivation and research questions</h2>
     <div class="prose">
-      <p>SPMO has been one of the standout equity ETFs of the past two years: measured with CRSP total returns it
+      <p>SPMO has been one of the standout equity ETFs of the past two years. Measured with CRSP total returns, it
       gained <b>45.8% in 2024</b> and 26.6% in 2025, against 24.9% and 17.7% for SPY. Over its full history
       (Nov-2015 to Dec-2025) it compounded at 17.5% a year versus 14.3%.</p>
       <p>This is puzzling. Hwang and Rubesam (2015) find that the momentum premium in U.S. stocks largely
       disappeared after the late 1990s, and in this sample the Fama-French momentum factor (UMD) earned a Sharpe
       ratio of only <b>0.16</b> over 2015–2025 (0.30 over 1995–2014). <em>How did a momentum ETF beat the market
       while the momentum factor faded?</em></p>
-      <p>SPMO's index is often described simply as "momentum", but it combines three ingredients: it selects stocks
-      on momentum divided by volatility, and it weights them by market cap times a momentum score. The project asks:</p>
+      <p>SPMO's index is often described simply as "momentum", but it combines three ingredients. It selects stocks
+      on momentum divided by volatility, and it weights them by market cap times a momentum score. The project asks two questions.</p>
       <ul>
         <li><b>Attribution.</b> Does the outperformance come from momentum, from the volatility adjustment, or from market-cap weighting?</li>
         <li><b>Improvement.</b> Given the answer, can the construction be improved?</li>
@@ -309,13 +309,13 @@
     <h2 class="sec"><span class="n">1.</span> Data</h2>
     <div class="mmf">
       <div class="row"><div class="k">Motivation</div><div class="v">A fifty-year study of an index strategy is only as
-        good as its universe: today's S&amp;P 500 members would build survivorship bias into every result.</div></div>
+        good as its universe, and using today's S&amp;P 500 members would build survivorship bias into every result.</div></div>
       <div class="row"><div class="k">Method</div><div class="v"><ul>
-        <li><b>Point-in-time universe:</b> every stock that was an S&amp;P 500 member at any time since 1974, from CRSP's historical constituent list (1,680 securities), applied month by month.</li>
-        <li><b>Returns:</b> CRSP (CIZ) daily and monthly total returns, monthly returns including delisting returns.</li>
-        <li><b>Links and fundamentals:</b> CRSP–Compustat links with priority primary &gt; secondary share class, so pairs such as GOOG and GOOGL stay linked; Compustat book equity and GICS sectors.</li>
-        <li><b>Factors:</b> Fama-French five factors and momentum (WRDS); short- and long-term reversal factors from the Kenneth French data library.</li>
-        <li><b>Validation:</b> an automated script checks completeness, keys, calendars, return consistency and coverage, and fails on any structural problem.</li>
+        <li><b>Point-in-time universe.</b> The universe includes every stock that was an S&amp;P 500 member at any time since 1974, taken from CRSP's historical constituent list (1,680 securities) and applied month by month.</li>
+        <li><b>Returns.</b> CRSP (CIZ) daily and monthly total returns are used, and monthly returns include delisting returns.</li>
+        <li><b>Links and fundamentals.</b> CRSP–Compustat links give the primary share class priority over secondary ones, so pairs such as GOOG and GOOGL stay linked. Compustat provides book equity and GICS sectors.</li>
+        <li><b>Factors.</b> The Fama-French five factors and momentum come from WRDS, and the short- and long-term reversal factors from the Kenneth French data library.</li>
+        <li><b>Validation.</b> An automated script checks completeness, keys, calendars, return consistency and coverage, and fails on any structural problem.</li>
       </ul></div></div>
       <div class="row find"><div class="k">Finding</div><div class="v">No structural failures. 499–506 constituents at
         every month-end; 99.99% of member-months have a return (the 37 gaps are missing in CRSP itself); 99.85% of
@@ -344,21 +344,21 @@
       <div class="row"><div class="k">Motivation</div><div class="v">SPMO has ten years of live returns. Studying the
         strategy over fifty years, and switching its ingredients on and off, requires a replica built from CRSP.</div></div>
       <div class="row"><div class="k">Method</div><div class="v">
-        <p>Following S&amp;P's methodology, at the end of each February and August (reference month <i>t</i>):</p>
+        <p>Following S&amp;P's methodology, at the end of each February and August (reference month <i>t</i>), the replica applies four rules.</p>
         <ul>
-          <li><b>Signal:</b> <span class="formula">x = 12-1 month total return ÷ annualised daily volatility</span> over months <i>t</i>−12 to <i>t</i>−1 (at least 150 trading days).</li>
-          <li><b>Selection:</b> the top 20% of S&amp;P 500 members by <i>x</i> (about 100 stocks).</li>
-          <li><b>Weights:</b> market cap × max(<i>x</i>, 0), capped at min(9%, 3 × the stock's market-cap weight among the selected), excess redistributed pro rata.</li>
-          <li><b>Holding:</b> buy and hold for six months from <i>t</i>+2, weights drifting with returns.</li>
+          <li><b>Signal.</b> The signal is <span class="formula">x = 12-1 month total return ÷ annualised daily volatility</span> over months <i>t</i>−12 to <i>t</i>−1 (at least 150 trading days).</li>
+          <li><b>Selection.</b> The replica holds the top 20% of S&amp;P 500 members by <i>x</i> (about 100 stocks).</li>
+          <li><b>Weights.</b> Each stock is weighted by market cap × max(<i>x</i>, 0), capped at min(9%, 3 × its market-cap weight among the selected), with the excess redistributed pro rata.</li>
+          <li><b>Holding.</b> The portfolio is bought and held for six months from <i>t</i>+2, with weights drifting with returns.</li>
         </ul>
         <p>Ten remaining differences from the index are documented, for example total rather than float-adjusted
         market cap, raw <i>x</i> instead of S&amp;P's winsorised z-score, and no 20% selection buffer.</p></div></div>
       <div class="row find"><div class="k">Finding</div><div class="v">
         <p>The capped replica tracks SPMO with correlation <b>0.992</b> and tracking error <b>2.0%</b>, and returns
         17.0% a year against SPMO's 17.5% (which is after fees).</p>
-        <p>The weight cap matters for <b>replication accuracy</b>, because SPMO applies it: without it, correlation
-        falls to 0.979 and the 2024 return jumps to 62.1% (SPMO: 45.8%). It barely matters for <b>long-run
-        performance</b>: over 1995–2025 the uncapped and capped versions return 12.7% and 12.4% a year, with the
+        <p>The weight cap matters for <b>replication accuracy</b>, because SPMO applies it. Without it, correlation
+        falls to 0.979 and the 2024 return jumps to 62.1%, against 45.8% for SPMO. It barely matters for <b>long-run
+        performance</b>, since over 1995–2025 the uncapped and capped versions return 12.7% and 12.4% a year, with the
         same Sharpe ratio of 0.63.</p></div></div>
     </div>
     <div class="exhibit">
@@ -382,26 +382,26 @@
 
   <!-- ===================== 3 ===================== -->
   <section id="s3">
-    <h2 class="sec"><span class="n">3.</span> Attribution: a 2 × 2 × 2 design</h2>
+    <h2 class="sec"><span class="n">3.</span> Attribution with a 2 × 2 × 2 design</h2>
     <div class="mmf">
-      <div class="row"><div class="k">Motivation</div><div class="v">Answer the first research question: which of the three ingredients earns the outperformance?</div></div>
+      <div class="row"><div class="k">Motivation</div><div class="v">Answer the first research question, namely which of the three ingredients earns the outperformance.</div></div>
       <div class="row"><div class="k">Method</div><div class="v">
         <p>Three switches define eight portfolios that share the same universe, rebalancing dates and holding rules;
-        only selection and weights differ:</p>
+        only selection and weights differ.</p>
         <ul>
-          <li><b>M</b> (momentum): hold the top quintile by momentum ÷ σ and weight by momentum, instead of holding the whole S&amp;P 500.</li>
-          <li><b>C</b> (market cap): multiply the weights by market cap.</li>
-          <li><b>V</b> (volatility): divide the weights by σ.</li>
+          <li><b>M</b> (momentum) holds the top quintile by momentum ÷ σ and weights by momentum, instead of holding the whole S&amp;P 500.</li>
+          <li><b>C</b> (market cap) multiplies the weights by market cap.</li>
+          <li><b>V</b> (volatility) divides the weights by σ.</li>
         </ul>
         <p>A three-digit code gives the switches, so <code>000</code> is the equal-weighted S&amp;P 500 and <code>111</code>
-        is the SPMO construction. Effects are differences of monthly returns: a <b>conditional effect</b> switches
+        is the SPMO construction. Effects are differences of monthly returns. A <b>conditional effect</b> switches
         one ingredient on with M fixed (e.g. C (market) = cap weighting within the S&amp;P 500, C (momentum) = cap
         weighting within the momentum quintile); an <b>interaction</b> is the difference between the two, e.g.
         <span class="formula">M × C = C (momentum) − C (market)</span>.</p></div></div>
       <div class="row find"><div class="k">Finding</div><div class="v">
         <p><b>No main effect is significant, and V contributes nothing</b> (−0.4% a year, both in the market and
         among winners). The only significant effect is the <b>M × C interaction, +2.8% a year</b> (t = 2.84 with
-        independent months, 2.39 Newey-West): cap weighting loses 0.8% a year across the S&amp;P 500 but gains 2.0%
+        independent months, 2.39 Newey-West). Cap weighting loses 0.8% a year across the S&amp;P 500 but gains 2.0%
         within the momentum quintile.</p></div></div>
     </div>
     <div class="callout note">
@@ -437,26 +437,26 @@
       <a class="plate" href="spmo-momentum-puzzle/attr_matrix.png" style="max-width:820px"><img src="spmo-momentum-puzzle/attr_matrix.png" alt="Pairwise return differences between the eight portfolios" loading="lazy"></a>
       <div style="height:14px"></div>
       <a class="plate" href="spmo-momentum-puzzle/attr_momentum_years.png"><img src="spmo-momentum-puzzle/attr_momentum_years.png" alt="Calendar-year returns of the momentum-quintile portfolios" loading="lazy"></a>
-      <p class="caption"><b>Exhibit 3.</b> Top: annualised return difference for every pair of portfolios (row minus column, t-stat in brackets; none of the 28 pairs is significant on its own). Bottom: calendar-year returns of the four momentum-quintile portfolios; 111 is uncapped.</p>
+      <p class="caption"><b>Exhibit 3.</b> The top panel shows the annualised return difference for every pair of portfolios (row minus column, t-stat in brackets; none of the 28 pairs is significant on its own). The bottom panel shows calendar-year returns of the four momentum-quintile portfolios; 111 is uncapped.</p>
     </div>
   </section>
 
   <!-- ===================== 4 ===================== -->
   <section id="s4">
     <h2 class="sec"><span class="n">4.</span> Is momentum × market cap real? Three diagnostics</h2>
-    <div class="prose"><p>The interaction is the only significant effect, so it deserves scrutiny: is it a few
+    <div class="prose"><p>The interaction is the only significant effect, so it deserves scrutiny. Is it a few
     months, a few stocks, or a factor in disguise?</p></div>
 
     <h3 class="sub"><span class="n">4a.</span> When did it happen?</h3>
     <div class="mmf">
       <div class="row"><div class="k">Method</div><div class="v">Decompose M × C by month and quarter, and break its four largest episodes into stocks and size groups.</div></div>
       <div class="row find"><div class="k">Finding</div><div class="v">
-        <p>M × C is concentrated in a few episodes: <b>2000Q4, 2009Q2, the post-COVID rebound and 2024Q1</b>.
-        Excluding its two largest calendar years (2009: +33.6%, 2024: +29.7%), it falls to +1.4% a year (t = 1.48).
-        Two different mechanisms produce it:</p>
+        <p>M × C is concentrated in a few episodes, namely <b>2000Q4, 2009Q2, the post-COVID rebound and 2024Q1</b>.
+        Excluding its two largest calendar years (+33.6% in 2009 and +29.7% in 2024), it falls to +1.4% a year (t = 1.48).
+        Two different mechanisms produce it.</p>
         <ul>
           <li><b>Cap weighting loses in the whole market.</b> In 2000Q4, 2009Q2 and 2020–21, small and beaten-down stocks rebounded, so C (market) was sharply negative (−9% to −16%); M × C subtracts it.</li>
-          <li><b>Cap weighting wins among winners.</b> In 2024Q1 the largest momentum stocks rallied: NVDA, 33% of the momentum × market-cap portfolio against 3% of the momentum-weighted one, alone contributed 18.5 points.</li>
+          <li><b>Cap weighting wins among winners.</b> In 2024Q1 the largest momentum stocks rallied. NVDA, 33% of the momentum × market-cap portfolio against 3% of the momentum-weighted one, alone contributed 18.5 points.</li>
         </ul>
         <p>These episodes explain the <em>average</em> of M × C. They do not show that the strategy's edge relies on
         a few stocks; that question is answered by the double sort below.</p></div></div>
@@ -478,12 +478,12 @@
       <p class="caption"><b>Exhibit 4.</b> M × C (top) and its two components by month (left) and quarter (right). C (market) is subtracted, so its negative bars raise M × C. Shading marks the largest episodes.</p>
     </div>
 
-    <h3 class="sub"><span class="n">4b.</span> Double sort: groups instead of weights</h3>
+    <h3 class="sub"><span class="n">4b.</span> Double sort with groups instead of weights</h3>
     <div class="mmf">
       <div class="row"><div class="k">Method</div><div class="v">
         <p>Replace continuous weight tilts with groups of stocks, so no single name can dominate. At each rebalance
         the S&amp;P 500 is sorted into quintiles of momentum ÷ σ, then <b>each momentum quintile is sorted into size
-        quintiles</b> (a conditional sort: about 20 stocks per cell, equal-weighted). A conditional sort is used because
+        quintiles</b> (a conditional sort with about 20 stocks per cell, equal-weighted). A conditional sort is used because
         momentum and size are correlated, and an independent sort would leave cells such as small winners almost
         empty; the cost is that S5 is not the same firm size in every momentum quintile. Size is measured as current
         market cap and, as a check, market cap twelve months earlier, before the momentum window.</p></div></div>
@@ -497,10 +497,10 @@
     <div class="mmf" style="margin-top:18px">
       <div class="row find"><div class="k">Finding</div><div class="v">
         <ul>
-          <li><b>The interaction is a broad cross-sectional effect:</b> M5 − average = +4.9% a year (t = 2.75). Size slopes are negative in the lower and middle momentum quintiles (M1 −4.3%, M3 −5.4%) and positive among winners (+2.4%).</li>
-          <li><b>About half is past returns in disguise:</b> with size measured before the momentum window, the interaction falls to +2.4% (t = 1.38). Current market cap partly re-encodes the past year's return.</li>
+          <li><b>The interaction is a broad cross-sectional effect.</b> M5 − average = +4.9% a year (t = 2.75). Size slopes are negative in the lower and middle momentum quintiles (M1 −4.3%, M3 −5.4%) and positive among winners (+2.4%).</li>
+          <li><b>About half is past returns in disguise.</b> With size measured before the momentum window, the interaction falls to +2.4% (t = 1.38). Current market cap partly re-encodes the past year's return.</li>
           <li><b>It is concentrated in 1995–2014</b> (+7.4%, t = 3.11) and near zero in 2015–2025 (+0.3%), because in that decade large caps beat small caps in <em>every</em> momentum quintile. The cap-weighted M × C was still +2.3% a year over 2015–2025; only the equal-weighted interaction vanishes.</li>
-          <li><b>The key evidence on concentration:</b> the large-cap winners cell (M5 × S5, about 20 stocks, equal-weighted) has Sharpe ratios of 0.62, 0.45 and <b>0.92</b> in 1995–2004, 2005–2014 and 2015–2025. The last matches the SPMO proxy's 0.93 without any single stock above about 5%: SPMO's recent edge came from large-cap winners as a group.</li>
+          <li><b>The key evidence on concentration.</b> The large-cap winners cell (M5 × S5, about 20 stocks, equal-weighted) has Sharpe ratios of 0.62, 0.45 and <b>0.92</b> in 1995–2004, 2005–2014 and 2015–2025. The last matches the SPMO proxy's 0.93 without any single stock above about 5%, so SPMO's recent edge came from large-cap winners as a group.</li>
         </ul></div></div>
     </div>
     <div class="exhibit">
@@ -523,10 +523,10 @@
       <div class="row"><div class="k">Method</div><div class="v">Regress each spread, and the proxy's excess return, on FF5 + UMD, then add the short- and long-term reversal factors; Newey-West standard errors (6 lags); full period and two subperiods.</div></div>
       <div class="row find"><div class="k">Finding</div><div class="v">
         <ul>
-          <li><b>C (market) is fully explained</b> by size and value (alpha −0.1%): cap weighting lags equal weighting because it forgoes SMB and HML.</li>
+          <li><b>C (market) is fully explained</b> by size and value (alpha −0.1%). Cap weighting lags equal weighting because it forgoes SMB and HML.</li>
           <li><b>About a third of M × C is explained by profitability</b> (RMW loading +0.18, t = 3.8); the remaining alpha is +1.9% (t = 1.78).</li>
           <li>The equal-weighted interaction keeps an alpha of +4.4% (t = 2.29), entirely from 1995–2014 (+6.7%, t = 2.81); with lagged size it is insignificant. The reversal factors explain none of these effects. The short-term reversal factor was never expected to, since the signal skips a month and holding starts at <i>t</i>+2.</li>
-          <li><b>The SPMO proxy has no significant alpha:</b> +0.7% a year (t = 0.58; 95% interval roughly −1.7% to +3.1%), market β 1.03, UMD 0.29, SMB −0.17, R² 0.82. Its returns are <em>largely</em> explained by known factors; the alpha is positive but statistically indistinguishable from zero, not proven to be zero.</li>
+          <li><b>The SPMO proxy has no significant alpha.</b> The alpha is +0.7% a year (t = 0.58; 95% interval roughly −1.7% to +3.1%), with market β 1.03, UMD 0.29, SMB −0.17 and R² 0.82. Its returns are <em>largely</em> explained by known factors; the alpha is positive but statistically indistinguishable from zero, not proven to be zero.</li>
         </ul></div></div>
     </div>
     <div class="exhibit">
@@ -550,21 +550,21 @@
 
     <div class="callout">
       <div class="lab">Answer to question 1, in-sample</div>
-      SPMO's edge is <b>market beta + momentum exposure + a large-cap tilt</b>: it holds the S&amp;P 500's large-cap
+      SPMO's edge is <b>market beta + momentum exposure + a large-cap tilt</b>, because it holds the S&amp;P 500's large-cap
       momentum winners. There is no significant alpha, no reliance on a few stocks, and the volatility adjustment does
       nothing. The broad long-short momentum factor did fade, but <b>large-cap winners inside the S&amp;P 500 had
       their best decade in 2015–2025</b> (Sharpe 0.92 against 0.45 the decade before), and SPMO's rules sat squarely on
-      that group. The price is drawdowns: −64% in 2000–2003 and −58% in 2008–2009.
+      that group. The price is drawdowns of −64% in 2000–2003 and −58% in 2008–2009.
     </div>
   </section>
 
   <!-- ===================== 5 ===================== -->
   <section id="s5">
-    <h2 class="sec"><span class="n">5.</span> Improvement: volatility targeting</h2>
+    <h2 class="sec"><span class="n">5.</span> Improvement through volatility targeting</h2>
     <div class="mmf">
       <div class="row"><div class="k">Motivation</div><div class="v">Momentum × market-cap weighting has no risk control,
-        and drawdowns are its main weakness. The proxy's monthly realised volatility clusters: its first-order
-        autocorrelation is <b>0.65</b> (lag 3: 0.33), so this month's volatility says something about next month's.</div></div>
+        and drawdowns are its main weakness. The proxy's monthly realised volatility clusters. Its first-order
+        autocorrelation is <b>0.65</b> (0.33 at lag 3), so this month's volatility says something about next month's.</div></div>
     </div>
     <div class="exhibit">
       <a class="plate" href="spmo-momentum-puzzle/vol_monthly.png"><img src="spmo-momentum-puzzle/vol_monthly.png" alt="Monthly realised volatility of the SPMO proxy" loading="lazy"></a>
@@ -575,18 +575,18 @@
     <div class="mmf">
       <div class="row"><div class="k">Method</div><div class="v">
         <ul>
-          <li><b>Forecast:</b> a HAR model (Corsi, 2009) in logs, <span class="formula">log RV<sub>m+1</sub> = b₀ + b₁ log RV1<sub>m</sub> + b₂ log RV3<sub>m</sub> + b₃ log RV12<sub>m</sub></span>, where RV1, RV3 and RV12 are annualised realised volatilities over the last 1, 3 and 12 months (one month = 21 trading days), with the lognormal bias correction exp(fit + s²/2).</li>
-          <li><b>No look-ahead:</b> re-estimated every month on an expanding window of data available at the time. The 12-month input needs 12 months of history and the regression at least 24 pairs, so targeting starts in Apr-1998.</li>
-          <li><b>Sizing:</b> exposure = 15% ÷ forecast, uncapped; the rest earns (or borrows at) the T-bill rate; no costs.</li>
+          <li><b>Forecast.</b> Volatility is forecast with a HAR model (Corsi, 2009) in logs, <span class="formula">log RV<sub>m+1</sub> = b₀ + b₁ log RV1<sub>m</sub> + b₂ log RV3<sub>m</sub> + b₃ log RV12<sub>m</sub></span>, where RV1, RV3 and RV12 are annualised realised volatilities over the last 1, 3 and 12 months (one month = 21 trading days), with the lognormal bias correction exp(fit + s²/2).</li>
+          <li><b>No look-ahead.</b> The model is re-estimated every month on an expanding window of data available at the time. The 12-month input needs 12 months of history and the regression at least 24 pairs, so targeting starts in Apr-1998.</li>
+          <li><b>Sizing.</b> Exposure is 15% ÷ forecast with no cap. The rest earns (or borrows at) the T-bill rate, and there are no costs.</li>
         </ul></div></div>
       <div class="row find"><div class="k">Finding</div><div class="v">
         <p>The forecast's out-of-sample R² (log volatility) is <b>0.39</b>, against 0.33 for last month's volatility.
         Targeting raises the Sharpe ratio from <b>0.51 to 0.72</b> (z = 2.55) and cuts the maximum drawdown from
         −64% to −35% (Apr-1998 to Dec-2025). The gain comes from the two prolonged crises, when exposure fell to
         0.25–0.5 for months; over 2015–2025 the two are level (0.89 vs 0.93).</p>
-        <p>The choice of target does not matter for the Sharpe ratio: with no cap and no costs, the target only
+        <p>The choice of target does not matter for the Sharpe ratio. With no cap and no costs, the target only
         scales exposure, so 10%, 15% and 20% give the same Sharpe (0.72) at different risk levels. The window does
-        matter: over the whole in-sample period, with fully invested warm-up years, the figures are 0.85 vs 0.63
+        matter. Over the whole in-sample period, with fully invested warm-up years, the figures are 0.85 vs 0.63
         (Exhibit 1).</p></div></div>
     </div>
     <div class="exhibit">
@@ -605,26 +605,26 @@
     </div>
     <div class="exhibit">
       <a class="plate" href="spmo-momentum-puzzle/har_performance.png"><img src="spmo-momentum-puzzle/har_performance.png" alt="Growth, drawdown and rolling volatility with and without HAR targeting" loading="lazy"></a>
-      <p class="caption"><b>Exhibit 10.</b> SPMO proxy with and without HAR targeting: growth of $1, drawdown, and rolling 12-month volatility against the 15% target.</p>
+      <p class="caption"><b>Exhibit 10.</b> Growth of $1, drawdown and rolling 12-month volatility (against the 15% target) of the SPMO proxy with and without HAR targeting.</p>
     </div>
     <div class="exhibit">
       <a class="plate" href="spmo-momentum-puzzle/har_forecast.png"><img src="spmo-momentum-puzzle/har_forecast.png" alt="HAR forecast versus realised volatility" loading="lazy"></a>
       <div style="height:14px"></div>
       <a class="plate" href="spmo-momentum-puzzle/har_exposure.png"><img src="spmo-momentum-puzzle/har_exposure.png" alt="Exposure under HAR targeting" loading="lazy"></a>
-      <p class="caption"><b>Exhibit 11.</b> Top: HAR forecast made at each month end vs the realised volatility of that month. Bottom: the resulting exposure, 0.25 to 2.16.</p>
+      <p class="caption"><b>Exhibit 11.</b> The top panel compares the HAR forecast made at each month end with the realised volatility of that month. The bottom panel shows the resulting exposure, which ranges from 0.25 to 2.16.</p>
     </div>
 
     <h3 class="sub"><span class="n">5b.</span> Do better forecasts make better portfolios?</h3>
     <div class="mmf">
-      <div class="row"><div class="k">Method</div><div class="v">Compare HAR with three alternatives under the same sizing rule, over Apr-2000 to Dec-2025:
+      <div class="row"><div class="k">Method</div><div class="v">Compare HAR with three alternatives under the same sizing rule, over Apr-2000 to Dec-2025.
         <ul>
-          <li><b>Ridge regression</b> on ten features: proxy volatility over 1, 3, 6 and 12 months, the ex-ante volatility of next month's weights over the last 63 and 126 days, S&amp;P 500 volatility over 1 and 3 months, and S&amp;P 500 returns over 1 and 12 months. The penalty is chosen each month by rolling-origin validation over the last 24 months.</li>
+          <li><b>Ridge regression</b> on ten features, namely proxy volatility over 1, 3, 6 and 12 months, the ex-ante volatility of next month's weights over the last 63 and 126 days, S&amp;P 500 volatility over 1 and 3 months, and S&amp;P 500 returns over 1 and 12 months. The penalty is chosen each month by rolling-origin validation over the last 24 months.</li>
           <li><b>GARCH(1,1)</b> on daily returns, re-estimated monthly by maximum likelihood; forecast = average variance over the next 21 days.</li>
           <li><b>EWMA</b> with decay 0.97 (RiskMetrics), no estimated parameters.</li>
         </ul></div></div>
       <div class="row find"><div class="k">Finding</div><div class="v">
         <p>All four beat the unmanaged proxy significantly, so the value of targeting does not hinge on the model.
-        But the rankings invert: by forecast accuracy, <b>ridge &gt; GARCH &gt; HAR &gt; EWMA</b>; by Sharpe ratio,
+        But the rankings invert. By forecast accuracy the order is <b>ridge &gt; GARCH &gt; HAR &gt; EWMA</b>, while by Sharpe ratio it is
         <b>HAR &gt; EWMA &gt; GARCH &gt; ridge</b>, and ridge is significantly worse than HAR.</p>
         <p><b>Forecast accuracy is not investment value.</b> Accuracy averages errors over all months; targeting gains
         come from exposure during a few prolonged crises. Slow, smooth forecasts such as HAR and EWMA stay de-risked
@@ -659,14 +659,14 @@
         <ul>
           <li>Freeze the design (git tag <code>pre-oos</code>), publish the evaluation script, then run it <b>once</b>.</li>
           <li>Every setting is the in-sample one; HAR is estimated on out-of-sample data only (targeting starts in Apr-1978); EWMA (0.97) is carried along as the simplest alternative.</li>
-          <li>Benchmark: the CRSP S&amp;P 500 value-weighted index.</li>
+          <li>The benchmark is the CRSP S&amp;P 500 value-weighted index.</li>
         </ul></div></div>
       <div class="row find"><div class="k">Finding</div><div class="v">
         <ul>
           <li>The proxy beat the S&amp;P 500 by 2.6 points a year (16.5% vs 13.9%, Apr-1975 to Mar-1995), with a Sharpe of 0.57 vs 0.48 (z = 0.94, not significant).</li>
           <li>Targeting improved the Sharpe ratio from <b>0.61 to 0.70</b> (HAR z = 1.23, EWMA z = 1.15) and the maximum drawdown from −31% to −25%, with HAR and EWMA nearly identical.</li>
-          <li>October 1987 was not avoided: exposure was about 0.9 going in. Cutting exposure to about 0.25 afterwards limited the later losses.</li>
-          <li>Same direction as in-sample, but smaller and not significant: this period had no prolonged momentum crash for the overlay to sidestep.</li>
+          <li>October 1987 was not avoided, because exposure was about 0.9 going in. Cutting exposure to about 0.25 afterwards limited the later losses.</li>
+          <li>The results point in the same direction as in-sample but are smaller and not significant, because this period had no prolonged momentum crash for the overlay to sidestep.</li>
         </ul></div></div>
     </div>
     <div class="exhibit">
@@ -695,18 +695,18 @@
     <div class="prose" style="margin-top:18px">
       <ul>
         <li><b>M × C does not hold out of sample.</b> Over 1975–1994 it is −0.9% a year (t = −1.07); over 1975–2025 as a whole, +1.4% (t = 1.67). Cap weighting lost money both across the market (−2.6%) and among winners (−3.5%) in a period when small caps led. "Momentum × market cap is the key ingredient" holds for 1995–2025 only.</li>
-        <li><b>Why the proxy still beat the market out of sample: momentum itself.</b> Momentum selection earned +3.5% a year (t = 2.13) while cap weighting cost 3.0% (t = −3.22). UMD averaged +10.2% a year in that period, and the proxy's UMD loading of 0.45 accounts for 4.6 points a year of its excess over the S&amp;P 500, with an alpha of −0.8% (not significant). An equal-weighted momentum portfolio (100) returned 20.8% a year against 16.5% for the proxy.</li>
-        <li><b>The puzzle, refined.</b> The same rules beat the market in both eras for different reasons: through the momentum factor in 1975–1994, with cap weighting a drag; through large-cap winners in 2015–2025, with the momentum factor weak.</li>
+        <li><b>The proxy still beat the market out of sample through momentum itself.</b> Momentum selection earned +3.5% a year (t = 2.13) while cap weighting cost 3.0% (t = −3.22). UMD averaged +10.2% a year in that period, and the proxy's UMD loading of 0.45 accounts for 4.6 points a year of its excess over the S&amp;P 500, with an alpha of −0.8% (not significant). An equal-weighted momentum portfolio (100) returned 20.8% a year against 16.5% for the proxy.</li>
+        <li><b>The puzzle, refined.</b> The same rules beat the market in both eras for different reasons. In 1975–1994 the edge came through the momentum factor, with cap weighting a drag. In 2015–2025 it came through large-cap winners, with the momentum factor weak.</li>
         <li><b>Fifty-year view.</b> With HAR estimated on one expanding window from 1975, $1 in Apr-1978 grows to $1,235 with targeting, $615 for the proxy and $274 for the S&amp;P 500 (Sharpe 0.77, 0.62 and 0.58; drawdown −40%, −64%, −51%). Nearly all of the improvement comes from 2000–2002 and 2008–2009; in the 2020s targeting lagged (0.77 vs 0.92) because sudden shocks were followed by fast rebounds.</li>
       </ul>
     </div>
     <div class="exhibit">
       <a class="plate" href="spmo-momentum-puzzle/post_mxc.png"><img src="spmo-momentum-puzzle/post_mxc.png" alt="M x C over 1975 to 2025" loading="lazy"></a>
-      <p class="caption"><b>Exhibit 14.</b> M × C over 1975–2025 (post-OOS): cumulative effects, calendar years and decade means with 95% confidence intervals (Newey-West). Shaded: out-of-sample period.</p>
+      <p class="caption"><b>Exhibit 14.</b> M × C over 1975–2025 (post-OOS), showing cumulative effects, calendar years and decade means with 95% confidence intervals (Newey-West). The shaded area is the out-of-sample period.</p>
     </div>
     <div class="exhibit">
       <a class="plate" href="spmo-momentum-puzzle/post_full_period.png"><img src="spmo-momentum-puzzle/post_full_period.png" alt="Strategies over 1978 to 2025" loading="lazy"></a>
-      <p class="caption"><b>Exhibit 15.</b> SPMO proxy, S&amp;P 500 and volatility targeting over 1978–2025 (post-OOS): growth, drawdown, exposure and rolling five-year Sharpe ratio.</p>
+      <p class="caption"><b>Exhibit 15.</b> SPMO proxy, S&amp;P 500 and volatility targeting over 1978–2025 (post-OOS), showing growth, drawdown, exposure and rolling five-year Sharpe ratio.</p>
     </div>
   </section>
 
@@ -765,7 +765,7 @@
 
   <footer>
     <p>Every number and figure on this page is produced by the scripts in the repository; none is entered by hand.</p>
-    <p class="mono">Data: CRSP, Compustat and Fama-French via WRDS; reversal factors from the Kenneth French data library. For research illustration only; not investment advice.</p>
+    <p class="mono">Data come from CRSP, Compustat and Fama-French via WRDS, with reversal factors from the Kenneth French data library. For research illustration only; not investment advice.</p>
     <p class="mono">© 2026 Shaotong (Tom) Li. All rights reserved.</p>
   </footer>
 </div>
