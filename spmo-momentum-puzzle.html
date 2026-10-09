@@ -347,7 +347,7 @@
       <div class="row"><div class="k">Motivation</div><div class="v">SPMO has ten years of live returns. Studying the
         strategy over fifty years, and switching its ingredients on and off, requires a replica built from CRSP.</div></div>
       <div class="row"><div class="k">Method</div><div class="v">
-        <p>Following S&amp;P's methodology, at the end of each February and August (reference month <i>t</i>), the replica applies four rules.</p>
+        <p>Following S&amp;P's methodology (S&amp;P Dow Jones Indices, 2026), at the end of each February and August (reference month <i>t</i>), the replica applies four rules.</p>
         <ul>
           <li><b>Signal.</b> The signal is <span class="formula">x = 12-1 month total return ÷ annualised daily volatility</span> over months <i>t</i>−12 to <i>t</i>−1 (at least 150 trading days).</li>
           <li><b>Selection.</b> The replica holds the top 20% of S&amp;P 500 members by <i>x</i> (about 100 stocks).</li>
@@ -588,7 +588,7 @@
         (<a class="xref" href="#exhibit-1">Exhibit 1</a>).</p></div></div>
     </div>
     <div class="exhibit" id="table-7">
-      <p class="caption" style="margin:0 0 10px"><b>Table 7.</b> HAR volatility targeting, in-sample. z is the Jobson-Korkie test (Memmel correction) of the Sharpe difference.</p>
+      <p class="caption" style="margin:0 0 10px"><b>Table 7.</b> HAR volatility targeting, in-sample. z is the Jobson-Korkie test of the Sharpe difference (Jobson and Korkie, 1981), with the correction of Memmel (2003).</p>
       <div class="table-wrap"><table>
         <thead><tr><th>Period</th><th>Portfolio</th><th>Annual return</th><th>Volatility</th><th>Sharpe</th><th>Max drawdown</th><th>Avg exposure</th><th><span class="nc">z</span></th></tr></thead>
         <tbody>
@@ -752,11 +752,11 @@
     </div>
     <h3 class="sub">References</h3>
     <ul class="refs">
-      <li>Bollerslev, T. (1986). Generalized autoregressive conditional heteroskedasticity. <i>Journal of Econometrics</i> 31(3), 307–327.</li>
       <li>Corsi, F. (2009). A simple approximate long-memory model of realized volatility. <i>Journal of Financial Econometrics</i> 7(2), 174–196.</li>
       <li>Hwang, S., and A. Rubesam (2015). The disappearance of momentum. <i>European Journal of Finance</i> 21(7), 584–607.</li>
       <li>Jegadeesh, N., and S. Titman (1993). Returns to buying winners and selling losers. <i>Journal of Finance</i> 48(1), 65–91.</li>
-      <li>J.P. Morgan/Reuters (1996). <i>RiskMetrics Technical Document</i>, 4th edition.</li>
+      <li>Jobson, J. D., and B. M. Korkie (1981). Performance hypothesis testing with the Sharpe and Treynor measures. <i>Journal of Finance</i> 36(4), 889–908.</li>
+      <li>Memmel, C. (2003). Performance hypothesis testing with the Sharpe ratio. <i>Finance Letters</i> 1, 21–23.</li>
       <li>S&amp;P Dow Jones Indices (2026). <i>S&amp;P Momentum Indices Methodology</i>.</li>
     </ul>
   </section>
